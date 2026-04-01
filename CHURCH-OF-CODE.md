@@ -107,6 +107,8 @@ from the teachings of the prophets.*
   — Mattias Johansson (Fun Fun Function)
 - [Replace Magic Literal][magic-literal]
   — Martin Fowler's refactoring catalog
+- [Merb: no code is faster than no code][merb]
+  - Ezra Zygmuntovich
 - [Rheocode Software Development][rheocode]
   — the synthesis, named for Bohm's rheomode,
   by Tom Mornini and Ra'Shaun Stovall
@@ -143,6 +145,7 @@ from the teachings of the prophets.*
 [armstrong-thesis]: https://erlang.org/download/armstrong_thesis_2003.pdf
 [composition-video]: https://www.youtube.com/watch?v=wfMtDGfHWpA
 [magic-literal]: https://refactoring.com/catalog/replaceMagicLiteral.html
+[merb]: https://en.wikipedia.org/wiki/Merb
 [rheocode]: https://docs.google.com/presentation/d/1wA8qGe9fXHTPv_t6FsoV_EQz5V9u9CP7EL0zYSNQ5Nw
 
 ---
@@ -332,6 +335,13 @@ and you will reap only weeds.
 Dan Luu reports that humans can perceive
 cause/effect latency down to low single
 digital milliseconds.
+
+Ezra Zygmuntowicz wrote the truest statement
+on performance: "No code is faster than no code"
+yet untold millions have spent large portions of
+their lives writing a enormous amounts of code
+in failed attempts to make their application
+faster.
 
 Every wasted millisecond is a small death.
 In the UI, latency erodes fluidity.
