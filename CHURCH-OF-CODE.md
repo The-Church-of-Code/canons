@@ -1131,8 +1131,8 @@ Naur and Kay, Liskov and Meyer,
 McIlroy and Fielding, Martin and Beck,
 Hunt and Thomas and Pascal,
 Gosling and Hickey and Armstrong,
-Fowler and Johansson and Nielsen,
-Feathers and Stovall.
+Fowler and Johansson and Luu, and
+Feathers, and Zygmuntowicz and Stovall.
 Their teachings are our foundation.
 Their scrolls are our inheritance —
 the only inheritance we permit.
