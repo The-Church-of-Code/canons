@@ -534,12 +534,22 @@ The faithful compose.
 **We believe in insulation through adapters.**
 Our code touches external code
 only through adapters we own.
+
+This allows our application to be written
+entirely in our single voice.
+
+"If as one people speaking the same language
+they have begun to do this, then nothing they
+plan to do will be impossible for them." -- Paraphrased Genesis 11:6
+
 So taught Ra'Shaun Stovall:
-it is not how fast you can marry a technology —
-it is how fast you can divorce it.
+"it is not how fast you can marry a
+technology — it is how easily you can
+divorce it."
+
 When the chess board is scrambled,
-the application code remains untouched,
-only the adapter changes.
+the application changes not, as it
+is isolated by the adapters.
 
 **We believe in shallow structure.**
 Robert C. Martin taught that the top level
