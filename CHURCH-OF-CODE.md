@@ -87,8 +87,8 @@ from the teachings of the prophets.*
   — Andy Hunt and Dave Thomas (1998)
 - [Representational State Transfer][rest]
   — Roy Fielding's dissertation, Chapter 5 (2000)
-- [Response Time Limits][response-times]
-  — Jakob Nielsen's three thresholds
+- [Computer latency: 1977-2017][input-lag]
+  - Dan Luu's
 - [James Gosling on Java][gosling]
   — the creator's regret about inheritance (2001)
 - [Test-Driven Development: By Example][tdd]
@@ -292,21 +292,6 @@ But when the operation truly cannot be decomposed —
 when atomicity is genuinely required —
 embrace it without apology.
 
-### X. Snappiness
-
-*Low latency is next to godliness.*
-
-Jakob Nielsen quantified the thresholds:
-one hundred milliseconds to feel instant,
-one second to keep the flow of thought,
-ten seconds to hold attention at all.
-Every wasted millisecond is a small death.
-In the UI, latency erodes trust.
-In high-frequency serial operations,
-it erodes throughput.
-The user's patience is finite,
-though your retry loop may not be.
-
 ### XI. Generality
 
 *Never generalize before exploratory duplication.*
@@ -339,6 +324,21 @@ and efficiency will follow
 as the harvest follows the planting.
 Chase efficiency first
 and you will reap only weeds.
+
+### XII. Low Latency
+
+*Low latency is next to godliness.*
+
+Dan Luu reports that humans can perceive
+cause/effect latency down to low single
+digital milliseconds.
+
+Every wasted millisecond is a small death.
+In the UI, latency erodes fluidity.
+In high-frequency serial operations,
+it erodes throughput.
+The user's patience is finite,
+though your retry loop may not be.
 
 ---
 
