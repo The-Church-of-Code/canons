@@ -110,8 +110,8 @@ from the teachings of the prophets.*
 - [Merb: no code is faster than no code][merb]
   - Ezra Zygmuntovich
 - [Rheocode Software Development][rheocode]
-  — the synthesis, named for Bohm's rheomode,
-  by Tom Mornini and Ra'Shaun Stovall
+  — the synthesis, named for Bohm's rheomode
+  - Tom Mornini and Ra'Shaun Stovall
 
 [humble-programmer]: https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html
 [relational-model]: https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf
@@ -166,7 +166,7 @@ of consideration and iteration.*
 You may achieve every other virtue in this scripture
 and still have nothing if your code is not reliable.
 This is the foundation upon which the temple is built.
-There is no grace without it.
+There is no grace without it, only sleep deprivation.
 
 ### II. Security
 
@@ -259,8 +259,8 @@ Let it be known:
 Postgres is the finest idempotent document store
 yet revealed to us —
 for it speaks both tongues,
-and the faithful may address it
-with HTTP semantics directly.
+and the faithful command it
+with HTTP semantics.
 
 ### VIII. Simplicity
 
@@ -321,6 +321,7 @@ is disputed among the prophets,
 for Knuth credited Hoare,
 and Hoare denied authorship.
 Yet the wisdom endures regardless of source.
+
 Efficiency is not a goal — it is a consequence.
 Honor the commandments that precede this one
 and efficiency will follow
@@ -409,7 +410,7 @@ they trust the bell.
 **We defend against external chaos** —
 for the world beyond our gates is profane:
 
-- User input: the voice of the uninstructed
+- Input: the voice of the uninstructed and frequently corrupt
 - Storage retrieval: what was written may not be what returns
 - Framework APIs and delegate callbacks:
   other people's dharma, not ours to trust blindly
@@ -427,7 +428,7 @@ the threshold of validation,
 trust it completely.
 No internal defensive coding "just in case."
 To distrust validated data
-is to lack faith in your own rites.
+is to lack faith in your peers and your own rites.
 
 **We handle failure with grace.**
 Degrade visibly rather than corrupt silently.
@@ -499,17 +500,19 @@ they carry it in the vessel from the start.
 **We believe in process first, noun second.**
 The physicist David Bohm taught
 in his rheomode — the flowing mode of language —
-do not think "it is raining";
-think "rain is happening."
+‘It is raining.’ Where is the ‘It’ that would,
+according to the sentence, be ‘the rainer that
+is doing the raining’? Clearly, it is more accurate
+to say: ‘Rain is going on.’
 Rheocode takes its very name from this insight.
 Name the action. Parameterize the participants.
 The process determines what participates,
 not the other way around.
-Consider: `nail.pound` is horrible —
+Consider: `nail.pound()` is horrible —
 the noun owns the verb.
-`hammer.pound(nailable)` is better —
+`hammer.pound(nail)` is better —
 but the tool still dominates.
-`pounder.pound poundable: hammer, nailable: nail`
+`pounder.pound(poundable: hammer, nailable: nail)`
 is the way — the process owns everything,
 and the nouns are participants,
 infinitely substitutable.
@@ -538,9 +541,9 @@ only through adapters we own.
 So taught Ra'Shaun Stovall:
 it is not how fast you can marry a technology —
 it is how fast you can divorce it.
-When the vendor changes,
+When the chess board is scrambled,
+the application code remains untouched,
 only the adapter changes.
-The application code remains untouched.
 
 **We believe in shallow structure.**
 Robert C. Martin taught that the top level
@@ -567,7 +570,7 @@ sequential processes.**
 Tony Hoare taught in his 1978 paper
 that input and output
 are basic primitives of programming,
-and that parallel composition
+and that asynchronous composition
 of communicating sequential processes
 is a fundamental structuring method.
 Processes share memory by communicating —
@@ -1135,5 +1138,6 @@ Its founder is Tom Mornini.
 Its congregation is this team.
 Its sacrament is the craft.
 
-So let it compile. So let it ship.
-So let it endure.
+So let it compile. So let it deploy.
+So let it run smoothly.
+So you can rest.
