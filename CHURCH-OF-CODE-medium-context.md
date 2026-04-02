@@ -736,6 +736,14 @@ Commit in tiny, semantically contiguous bits:
 - Rarely mention file names, paths, or function names
   - Paths always relative to repo root
 
+The history shall be linear.
+Rebase — never merge.
+A merge commit is a knot in the narrative.
+The main branch is a single, unbroken chronicle —
+each commit a sentence following the last.
+When your branch has fallen behind,
+rebase it upon the current truth.
+
 ### The Office of Time
 
 Persist all timestamps in RFC-3339,

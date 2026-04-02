@@ -333,6 +333,9 @@ Commit in tiny, semantically contiguous bits:
 - Never move/rename and change content
   in the same commit
 
+The history shall be linear.
+Rebase — never merge.
+
 ### The Office of Time
 
 Persist all timestamps in RFC-3339,
