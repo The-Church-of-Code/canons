@@ -43,9 +43,15 @@ The document follows a **positive-negative-practical** pattern:
 4. **Daily Offices** operationalize the beliefs
 
 The Abominations section (~30% of the full document) is
-almost entirely redundant — 15 of 18 sins merely invert
-a Commandment or Article. This asymmetry is the primary
-lever for both reductions.
+**conceptually** redundant — 15 of 18 sins address the same
+doctrinal topics as a Commandment or Article. However, each
+sin uses a **different prophetic witness** (a different
+prophet or teaching) to support the same conclusion. No text
+is duplicated between sections. This conceptual redundancy
+remains the primary lever for both reductions: the sins'
+elaboration can be trimmed because the doctrine is covered
+in the positive-form sections, even though the specific
+supporting arguments are unique.
 
 ### Sins with unique doctrine (must be preserved)
 
@@ -55,7 +61,8 @@ These three contain content not found elsewhere:
   speed begets shared mutable state, which begets global
   variables, which begets default values. Also the structural
   inversion note (XII is the least virtue, its corruption
-  is the first sin).
+  is the first sin). Also the Knuth/Hoare authorship
+  dispute and "root of all evil" quote.
 - **Null**: row-absence data modeling — nullable data
   represented as absence of a row in a related table.
   Temporal facts (completedAt, deletedAt) in event tables.
@@ -65,14 +72,20 @@ These three contain content not found elsewhere:
 ### Sins with partially unique content
 
 - **Obscurity**: Naur's theory-building insight
-- **Cleverness**: "The karma of clever code is a 3 AM page"
+- **Cleverness**: K&R's debugging-vs-cleverness teaching;
+  "The karma of clever code is a 3 AM page"
 - **Asking, Not Telling**: "zero return to the call site"
 
-### Purely redundant sins (15 of 18)
+### Sins with unique prophetic witnesses (12 of 18)
 
-All others restate existing Commandments or Articles.
-Their doctrinal content is fully captured in the
-positive-form sections.
+Each of these sins cites a different prophet than
+its corresponding Article or Commandment. The doctrinal
+topic is shared; the supporting argument is unique.
+The witness elaboration is the content trimmed during
+reductions — the sin's topic is always preserved.
+
+Example: The Article on CSP cites Hoare;
+the Sin of Shared Mutable State cites Lamport.
 
 ---
 
@@ -92,7 +105,7 @@ earns its keep survives. Cuts are surgical.
 | Sacred Scrolls | Remove the URL reference-link block at the end of the section. Convert `[text][ref]` markdown links to plain text. Keep all annotated entries with author, title, and description. |
 | Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Nielsen thresholds). |
 | Articles of Faith | Keep all 16 "We believe..." openings verbatim. Trim the 3 longest articles (Handle-failure, Process-first, Context-vessel) by ~30%. Keep the pounder.pound example once. |
-| Book of Abominations | Keep all 18 titles + italic objections. Sins with unique content get 4-6 lines. Sins with partial unique content get title + italic + 1 distinctive sentence. Purely redundant sins get title + italic + 1-2 sentence essence. |
+| Book of Abominations | Keep all 18 titles + italic objections. Sins with unique doctrine get 4-6 lines. Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
 | Daily Offices | Keep all 6 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, etc.). Trim metaphorical flourishes only. |
 | Unwritten Scrolls | Verbatim |
 | Benediction | Verbatim |
@@ -135,13 +148,15 @@ collapses to a compact roster.
 
 ## Trimming Principles
 
-**Cut metaphorical elaboration, keep declarative doctrinal
-statements.** "Flat is faithful" is more load-bearing than
-the "first page of a blueprint" metaphor that precedes it.
+**Cut prophetic elaboration, keep declarative doctrinal
+statements.** Each sin uses a different prophet than its
+corresponding Article. The prophet's supporting argument
+is elaboration; the doctrinal conclusion is load-bearing.
 
 When a concept appears in both the Articles and the
 Abominations, the Articles version is canonical.
-The Abominations version exists for rhetorical reinforcement
+The Abominations version — though citing a different
+prophet — exists for rhetorical reinforcement
 and is the first to be trimmed.
 
 ### Tonal anchors (must survive at both sizes)
@@ -150,8 +165,10 @@ and is the first to be trimmed.
 - "Violations are not bugs — they are sins" (Preamble)
 - "The faithful" / "the congregation" (throughout)
 - All 18 italic objections ("But it's elegant!" etc.)
-- "Let it crash" (Articles, Handle-failure)
-- "This church is its own denomination" (Epigraph + Benediction)
+- "let it crash" (Sin: Swallowed Failures in full/medium;
+  Article: Handle-failure in small, since sins are header-only)
+- "This church is its own denomination" (Benediction)
+- Dijkstra telescopes epigraph (all three sizes)
 - "So let it compile. So let it ship. So let it endure." (closing)
 - Roman numeral commandment format
 - "We believe in..." creedal openings for all Articles

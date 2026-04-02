@@ -1,8 +1,10 @@
 # The Church of Code
 
-*v1.3 — medium*
+*v1.4 — medium*
 
-> *This church is its own denomination.*
+> *Computer science is no more about computers
+> than astronomy is about telescopes.*
+> — Edsger Dijkstra
 
 ---
 
@@ -106,10 +108,11 @@ from the teachings of the prophets.*
 - Making Reliable Distributed Systems
   in the Presence of Software Errors
   — Joe Armstrong on letting it crash (2003)
-- Composition over Inheritance
-  — Mattias Johansson (Fun Fun Function)
 - Replace Magic Literal
   — Martin Fowler's refactoring catalog
+- The C Programming Language
+  — Brian Kernighan and Dennis Ritchie (K&R)
+    on simplicity, clarity, and the shortest path (1978)
 - Merb: no code is faster than no code
   — Ezra Zygmuntowicz
 - Rheocode Software Development
@@ -216,6 +219,8 @@ As Dijkstra taught in his Turing Award lecture:
 the competent programmer approaches every task
 in full humility, aware of the strictly limited size
 of his own skull.
+As K&R demonstrated: C is not a big language,
+and it is not well served by a big book.
 Simplicity is not the absence of effort —
 it is the fruit of GREAT effort.
 
@@ -248,6 +253,9 @@ embrace it. Without apology.
 *True when the above eleven are honored.
 Chaotic when pursued prematurely.*
 
+As Dijkstra taught in his Turing Award lecture:
+the humble programmer knows efficiency emerges
+from clarity, not from the pursuit of speed.
 Efficiency is not a goal — it is a consequence.
 Honor the commandments that precede this one
 and efficiency will follow…
@@ -270,7 +278,8 @@ As Ezra Zygmuntowicz taught:
 ## The Articles of Faith
 
 *What the faithful practice.
-The happy path, presented first — as clarity demands.*
+The way of the righteous, spoken before the sins —
+as clarity demands.*
 
 **We believe in the S.O.L.I.D. principles** —
 the five pillars upon which
@@ -352,10 +361,11 @@ Absence is preferable to falsehood.
 Never try/catch more than a single function call.
 Never catch an error you cannot meaningfully handle —
 to swallow an exception is to swallow a lie.
-As Joe Armstrong taught:
-*let it crash.*
-Halting IS graceful
-when the alternative is silent corruption.
+As Bertrand Meyer taught — Design by Contract —
+a function declares what it requires
+and what it guarantees.
+When those terms are violated,
+the failure is a breach of covenant to be proclaimed.
 Distinguish expected failures from bugs:
 a network timeout is expected and handled;
 an impossible state is a bug… and must crash.
@@ -419,8 +429,7 @@ without inheritance.
 Gamma, Helm, Johnson, and Vlissides wrote:
 favor object composition
 over class inheritance.
-As Mattias Johansson distilled it:
-composition organizes code by what it *does*;
+Composition organizes code by what it *does*;
 inheritance organizes code by what it *is*.
 The faithful compose.
 
@@ -497,9 +506,10 @@ the most dangerous sin when pursued prematurely.
 *"But shared memory is faster!"*
 
 The most common fruit of premature optimization.
-As Hoare established in Communicating Sequential Processes:
-processes share memory by communicating,
-never communicate by sharing memory.
+As Lamport showed in his work on temporal logic:
+reasoning about shared mutable state is intractable.
+Every thread that touches the shared variable
+multiplies the possible interleavings.
 There is no third way.
 
 ### On the Sin of Global State
@@ -565,11 +575,10 @@ Validate at the gates. Trust within the walls.
 
 *"But a foreign key is just a reference!"*
 
-Entities hold their own attributes and no more.
-Relationships live in join tables —
-never as foreign keys embedded in nouns.
-A join table holds only the identities of the joined
-and the moment of their union.
+As Codd established in his normalization principles:
+entities and relationships occupy separate relations.
+A foreign key is a denormalization —
+it fuses what should be independent.
 And if you cry *performance* —
 performance is the TWELFTH commandment.
 Both designs are O(n).
@@ -578,10 +587,11 @@ Both designs are O(n).
 
 *"But it captures the IS-A relationship!"*
 
-To derive when you should compose
-is to chain your future to your ancestor's past.
-Inheritance binds by lineage;
-composition binds by capability.
+As Barbara Liskov established:
+a subtype must honor every promise
+the parent type has made.
+Inheritance that violates this contract
+produces hierarchies that lie about substitutability.
 When an ancestor changes…
 every descendant trembles.
 
@@ -590,9 +600,9 @@ every descendant trembles.
 *"But the library does everything we need!"*
 
 Everything you need… *today*.
-To call a third-party service
-without an adapter boundary
-is to weld your hull to the dock.
+As Fred Brooks taught in No Silver Bullet:
+every dependency is a bet
+that someone else's trajectory will match yours.
 Every external dependency —
 library… service… framework —
 gets an adapter. No exceptions.
@@ -623,15 +633,18 @@ It is an agent… to be directed.
 *"But I need to know when it's ready!"*
 
 Then *wait for it to tell you*.
-Subscribe. Listen. Be notified.
-The faithful do not pace; they trust the bell.
+As Alan Kay envisioned:
+a system of cells communicating through messages
+does not poll — the message arrives or it does not.
+To poll is to doubt the network itself.
 
 ### On the Sin of Scattered Context
 
 *"But I only need part of the data!"*
 
-Context is the single vessel.
-Pass it whole. Enrich it as you go.
+As Lamport taught: causality requires
+that events carry their full history.
+Pass context whole. Enrich it as you go.
 When every method receives the full context,
 no method must wonder what was left behind.
 
@@ -642,8 +655,10 @@ before I can build anything!"*
 
 No. You understand the data model
 BY understanding the processes.
-The process determines what participates —
-not the other way around.
+As Alan Kay lamented:
+OOP was corrupted because people fixated
+on the nouns — not the messages.
+The noun-first instinct is what killed his vision.
 
 ### On the Sin of Obscurity
 
@@ -662,8 +677,10 @@ the code is a tomb with no inscription.
 
 *"But it's elegant!"*
 
-As Dijkstra warned: the competent programmer
-avoids clever tricks like the plague.
+As K&R taught: debugging is twice as hard
+as writing the code —
+if you write it as cleverly as possible,
+you are not smart enough to debug it.
 Elegance is not concision —
 elegance is clarity under pressure.
 The karma of clever code… is a 3 AM page.
@@ -674,16 +691,18 @@ The karma of clever code… is a 3 AM page.
 
 As Martin Fowler cataloged: replace magic literal
 with named constant.
-An unnamed constant is an unnamed sin —
-call a thing a thing, in all things.
+As Naur taught: programming is theory building —
+an unnamed constant is a piece of the theory
+left unspoken.
 
 ### On the Sin of Deep Nesting
 
 *"But I need to organize by category!"*
 
-Deep nesting is taxonomy masquerading
-as architecture.
-Flat… is faithful.
+As McIlroy taught in the Unix tradition:
+transparency is a survival trait.
+A directory five levels deep
+is a secret kept from the next developer.
 
 ---
 
@@ -791,7 +810,8 @@ intuitive, accessible, and beautiful.
 They shall require no configuration —
 for the user's time is sacred
 and their patience is not infinite.
-Present the happy path first.
+As K&R taught with Hello, World —
+begin with the simplest thing that works.
 
 ### The Office of Commentary
 
@@ -863,7 +883,7 @@ Naur and Kay, Liskov and Meyer,
 McIlroy and Fielding, Martin and Beck,
 Hunt and Thomas and Pascal,
 Gosling and Hickey and Armstrong,
-Fowler and Johansson and Luu, and
+Fowler and Luu, Kernighan and Ritchie, and
 Feathers, and Zygmuntowicz and Stovall.
 Their teachings are our foundation.
 Their scrolls are our inheritance —

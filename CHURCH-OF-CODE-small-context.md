@@ -1,8 +1,10 @@
 # The Church of Code
 
-*v1.3 — small*
+*v1.4 — small*
 
-> *This church is its own denomination.*
+> *Computer science is no more about computers
+> than astronomy is about telescopes.*
+> — Edsger Dijkstra
 
 ---
 
@@ -39,7 +41,7 @@ Gamma/Helm/Johnson/Vlissides (1994),
 Martin, Hunt & Thomas (1998), Fielding (2000),
 Luu, Gosling (2001), Beck (2002),
 Hoare (2009), Hickey, Armstrong (2003),
-Johansson, Fowler, Zygmuntowicz,
+Fowler, K&R (1978), Zygmuntowicz,
 and the synthesis by Mornini & Stovall: Rheocode.
 
 ---
@@ -86,7 +88,8 @@ are ritual without substance.
 *Dense, high-information communication.
 No equivocation. No dissembling.*
 
-Present the happy path first.
+Lead with what the faithful should do
+before naming what they must not.
 
 ### VI. Immutability
 
@@ -147,7 +150,8 @@ it erodes throughput.
 ## The Articles of Faith
 
 *What the faithful practice.
-The happy path, presented first — as clarity demands.*
+The way of the righteous, spoken before the sins —
+as clarity demands.*
 
 **We believe in the S.O.L.I.D. principles:**
 
@@ -205,8 +209,9 @@ are not coercion.
 Absence is preferable to falsehood.
 Never try/catch more than a single function call.
 Never catch an error you cannot meaningfully handle.
-As Joe Armstrong taught: *let it crash.*
-Halting IS graceful
+As Meyer taught — Design by Contract —
+when terms are violated, proclaim the breach.
+*let it crash* — halting IS graceful
 when the alternative is silent corruption.
 Distinguish expected failures from bugs.
 Enrich errors at each boundary layer.
@@ -360,7 +365,8 @@ it is a *false prophet*.
 
 Intuitive, accessible, and beautiful.
 No configuration required.
-Present the happy path first.
+As K&R taught with Hello, World —
+begin with the simplest thing that works.
 
 ### The Office of Commentary
 
