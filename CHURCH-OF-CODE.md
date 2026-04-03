@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.4 — full*
+*v1.5 — full*
 
 > *Computer science is no more about computers
 > than astronomy is about telescopes.*
@@ -397,6 +397,13 @@ We do not interrogate their state.
 Through this discipline we achieve polymorphism…
 and through polymorphism, generality —
 the eleventh commandment made manifest.
+Mark the distinction:
+functions upon nouns — calculation, transformation —
+return what they produce, for that is their nature.
+Methods upon verbs begin asynchronous processes
+that pass signals and results
+to communicating sequential processes —
+never returning to the call site.
 
 **We believe that relationships between entities
 are sacred covenants,**
@@ -494,6 +501,19 @@ serializable for notifications
 to other processes and systems,
 loggable for debugging,
 complete by covenant.
+Context is not a god-object with a bloated interface —
+it is the baton in a relay.
+Each step in the pipeline is the interface,
+small and focused as the Segregation Principle demands.
+The context flows; the steps serve.
+Each field is set exactly once, in exactly one place —
+the attributes immutable
+even as the vessel itself is enriched.
+Authentication resolves the identity.
+Authorization resolves the roles.
+Deserialization resolves the body.
+The request UUID resolves the trace.
+No field is written twice. No step revisits another's work.
 Objects carry state, not arguments.
 Consequently, context always has
 everything you need.
@@ -859,12 +879,12 @@ when the alternative is silent corruption.
 *"But I need the return value!"*
 
 You *need* it. Do you?
+A function upon a noun returns what it produces.
+But a method upon a verb begins a process —
+passing results to communicating sequential processes,
+not back to the call site.
 To reach into an object for its internal state
 is to violate its sovereignty.
-To write call sites that demand return values from commands
-is the same transgression by another name.
-Systems accept commands and perform tasks —
-with zero return to the call site.
 An object is not a filing cabinet
 to be rummaged through.
 It is an agent… to be directed.
@@ -1028,7 +1048,11 @@ As the body requires hygiene, so does the code.
     a reference must not be broken
 - Prefer spaces — four of them — for indentation
   - Unless the language or toolchain compels otherwise:
-    Go's `gofmt` has spoken; Makefiles have their syntax
+    Go's `gofmt` has spoken; Makefiles have their syntax;
+    `mix format` is the voice of Elixir;
+    `prettier` the voice of JavaScript.
+    When the formatter has spoken, obey the formatter —
+    collateral chaos in service of preference is vanity
   - When the choice is yours, choose spaces
 - No trailing whitespace, save the final newline
 - A newline shall follow the last line in every file
@@ -1037,12 +1061,26 @@ As the body requires hygiene, so does the code.
 
 Commit frequently.
 `git commit --amend --no-edit` is a mercy
-granted to the diligent.
+granted to the diligent —
+but only upon unpublished work.
+What has been pushed has been witnessed;
+to rewrite witnessed history is to bear false witness.
+`git push --force` is the nuclear option —
+to be avoided in all but the most desperate circumstances.
 The reflog remembers what you have forgotten.
 You cannot commit too often. *You cannot.*
 
-Commit before building,
-for the build demands a clean working directory.
+Commit before building.
+A build from uncommitted state
+cannot be traced to a specific commit —
+cannot be reproduced,
+cannot be verified,
+cannot be trusted beyond
+"it worked on my machine."
+The build may alter the working directory itself;
+without the commit, the source is lost.
+Commit first. Build from known state.
+The reflog forgives; entropy does not.
 
 Commit in tiny, semantically contiguous bits:
 

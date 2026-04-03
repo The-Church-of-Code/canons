@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.4 — small*
+*v1.5 — small*
 
 > *Computer science is no more about computers
 > than astronomy is about telescopes.*
@@ -169,8 +169,11 @@ as clarity demands.*
 **We believe in telling, not asking.**
 We tell objects what to do.
 We do not interrogate their state.
-Systems accept commands and perform tasks —
-with zero return to the call site.
+Mark the distinction:
+functions upon nouns return what they produce.
+Methods upon verbs begin asynchronous processes,
+passing results to communicating sequential processes —
+never returning to the call site.
 
 **We believe that relationships between entities
 are sacred covenants** —
@@ -233,6 +236,10 @@ The datastore is a servant. Not a master.
 **We believe in context as the single vessel.**
 Context is the only argument passed to methods —
 serializable, loggable, complete by covenant.
+Context is not a god-object — it is the baton in a relay.
+Each pipeline step is the interface,
+focused as the Segregation Principle demands.
+Each field is set exactly once, in exactly one place.
 Objects carry state, not arguments.
 Structured logging, tracing, and metrics
 all emerge from context flowing whole.
@@ -318,15 +325,22 @@ Observed daily, without exception.*
   - Unless language or format compel otherwise
   - Links and URLs are exempt
 - Prefer spaces — four of them — for indentation
-  - Unless the language or toolchain compels otherwise
+  - Unless the language or toolchain compels otherwise:
+    when the formatter has spoken, obey the formatter —
+    collateral chaos in service of preference is vanity
 - No trailing whitespace, save the final newline
 - A newline shall follow the last line in every file
 
 ### The Office of the Commit
 
 Commit frequently. You cannot commit too often. *You cannot.*
-`git commit --amend --no-edit` is a mercy.
-Commit before building.
+`git commit --amend --no-edit` is a mercy —
+but only upon unpublished work.
+To rewrite witnessed history is to bear false witness.
+`git push --force` is to be avoided
+in all but the most desperate circumstances.
+Commit before building —
+a build from uncommitted state cannot be reproduced.
 Commit in tiny, semantically contiguous bits:
 
 - Main branch must build, function, and pass tests
