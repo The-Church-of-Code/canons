@@ -226,6 +226,7 @@ Each release of the scripture is identified by:
    to the new version number
 4. Commit all three files together
 5. Tag the commit: `git tag v{N}`
+6. Push the commit and tag: `git push && git push --tags`
 
 The git tag and the internal version lines must agree.
 The tag marks the commit where all three files are in sync.
