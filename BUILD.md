@@ -103,7 +103,7 @@ earns its keep survives. Cuts are surgical.
 | Title + Epigraph | Verbatim |
 | Preamble | Verbatim |
 | Sacred Scrolls | Remove the URL reference-link block at the end of the section. Convert `[text][ref]` markdown links to plain text. Keep all annotated entries with author, title, and description. |
-| Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Nielsen thresholds). |
+| Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Luu latency thresholds). |
 | Articles of Faith | Keep all 16 "We believe..." openings verbatim. Trim the 3 longest articles (Handle-failure, Process-first, Context-vessel) by ~30%. Keep the pounder.pound example once. |
 | Book of Abominations | Keep all 18 titles + italic objections. Sins with unique doctrine get 4-6 lines. Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
 | Daily Offices | Keep all 6 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, etc.). Trim metaphorical flourishes only. |
