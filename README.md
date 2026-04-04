@@ -92,10 +92,10 @@ In order of importance, from most to least:
 6. **Immutability** — eliminate "why did THAT happen?"
 7. **Idempotency** — PUT, GET, DELETE, not INSERT, UPDATE, DELETE
 8. **Simplicity** — the fruit of great effort, not its absence
-9. **Atomicity** — design so you rarely need it
-10. **Snappiness** — low latency is next to godliness
-11. **Generality** — never generalize before exploratory duplication
-12. **Efficiency** — true when the above eleven are honored
+9. **Generality** — never generalize before exploratory duplication
+10. **Atomicity** — design so you rarely need it
+11. **Efficiency** — true when the above eleven are honored
+12. **Performance** — every wasted millisecond is a small death
 
 ## The Prophets
 
