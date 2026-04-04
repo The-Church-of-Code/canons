@@ -172,5 +172,5 @@ Tom Mornini — founder of The Church of Code.
 
 ---
 
-*So let it compile. So let it ship.
-So let it endure.*
+*So let it compile. So let it deploy.
+So let it run smoothly. So you can rest.*
