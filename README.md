@@ -106,8 +106,9 @@ Knuth, Gray, Brooks, Bohm,
 Naur, Kay, Liskov, Meyer,
 McIlroy, Fielding, Martin, Beck,
 Hunt, Thomas, Pascal, Gosling,
-Hickey, Armstrong, Fowler, Nielsen,
-Johansson, Feathers, and Stovall.
+Hickey, Armstrong, Fowler, Luu,
+Kernighan, Ritchie, Feathers,
+Zygmuntowicz, and Stovall.
 
 Each teaching is cited with its source
 in the Sacred Scrolls.
