@@ -165,7 +165,7 @@ as a plugin skill instead of referencing
 the file from `CLAUDE.md`:
 
 ```
-/plugin marketplace add tmornini/church-of-code
+/plugin marketplace add The-Church-of-Code/church-of-code
 /plugin install church-of-code@church-of-code-marketplace
 ```
 
