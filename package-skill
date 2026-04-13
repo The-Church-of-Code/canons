@@ -25,7 +25,7 @@ PLUGIN_JSON=".claude-plugin/plugin.json"
 MARKETPLACE_JSON=".claude-plugin/marketplace.json"
 SKILL_MD="$SKILL_DIR/SKILL.md"
 
-fail() { echo "package-skill: $*" >&2; exit "${2:-1}"; }
+fail() { echo "package-skill: $1" >&2; exit "${2:-1}"; }
 
 # 1. Preflight — canonical sources must exist.
 for src in "${SOURCES[@]}"; do
