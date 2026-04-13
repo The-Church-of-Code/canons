@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.6 — medium*
+*v1.7 — medium*
 
 > *Computer science is no more about computers
 > than astronomy is about telescopes.*
@@ -253,12 +253,12 @@ embrace it. Without apology.
 *True when the above eleven are honored.
 Chaotic when pursued prematurely.*
 
-As Dijkstra taught in his Turing Award lecture:
-the humble programmer knows efficiency emerges
-from clarity, not from the pursuit of speed.
+Efficiency emerges from humility —
+from clarity, from simplicity,
+from code that can be reasoned about.
 Efficiency is not a goal — it is a consequence.
 Honor the commandments that precede this one
-and efficiency will follow…
+and efficiency will follow as surely
 as the harvest follows the planting.
 
 ### XII. Performance
@@ -328,7 +328,7 @@ If a relationship demands more than this…
 it is not a relationship —
 it is an entity wearing a false name.
 
-**We believe in being informed of state changes,**
+**We believe in being informed of state changes**
 not in the anxious polling of the faithless.
 Gamma, Helm, Johnson, and Vlissides
 codified this as the Observer pattern.
@@ -337,16 +337,16 @@ The devout do not pace the hallway;
 they trust the bell.
 
 **We defend against external chaos** —
-for the world beyond our gates is profane:
+for the world beyond our gates is often profane:
 
 - Input: the voice of the uninstructed
-  and frequently corrupt
-- Storage retrieval: what was written
-  may not be what returns
+  is frequently corrupt
+- Storage: what was written may rarely become
+  corrupt; far more commonly, it was stored
+  incorrectly. Beware!
 - Framework APIs and delegate callbacks:
-  other people's dharma, not ours to trust blindly
-- Async failure: the uncertainty
-  that lurks in every wire
+  other people's dharma, not ours to trust
+  blindly, ours to validate in our adapter
 
 **We validate at every edge.**
 As Bertrand Meyer taught — Design by Contract —
@@ -359,15 +359,14 @@ And once data has crossed
 the threshold of validation…
 trust it completely.
 No internal defensive coding "just in case."
-To distrust validated data
-is to lack faith in your peers and your own rites.
+To distrust validated data is to lack faith
+in your peers and rituals.
 
 **We handle failure with grace.**
 Degrade visibly rather than corrupt silently.
-Absence is preferable to falsehood.
 Never try/catch more than a single function call.
 Never catch an error you cannot meaningfully handle —
-to swallow an exception is to swallow a lie.
+to swallow an exception is excommunicable!
 As Bertrand Meyer taught — Design by Contract —
 a function declares what it requires
 and what it guarantees.
@@ -649,8 +648,8 @@ not back to the call site.
 To reach into an object for its internal state
 is to violate its sovereignty.
 An object is not a filing cabinet
-to be rummaged through.
-It is an agent… to be directed.
+to be rummaged through —
+it is an assistant to be utilized.
 
 ### On the Sin of Polling
 
@@ -661,6 +660,11 @@ As Alan Kay envisioned:
 a system of cells communicating through messages
 does not poll — the message arrives or it does not.
 To poll is to doubt the network itself.
+
+We are humble enough to realize that we
+are sometimes required to integrate with
+systems not of the faith. Should they
+require us to poll them, poll we must.
 
 ### On the Sin of Scattered Context
 
@@ -707,7 +711,7 @@ if you write it as cleverly as possible,
 you are not smart enough to debug it.
 Elegance is not concision —
 elegance is clarity under pressure.
-The karma of clever code… is a 3 AM page.
+The karma of clever code… is a 3 AM wake up call.
 
 ### On the Sin of Magical Values
 
@@ -754,37 +758,34 @@ Observed daily, without exception.*
 
 ### The Office of the Commit
 
-Commit frequently.
-`git commit --amend --no-edit` is a mercy
-granted to the diligent —
-but only upon unpublished work.
+Commit frequently. `git commit --amend --no-edit`
+is a mercy granted to the diligent and rewarded
+by git reflog. Only use the git magic in private,
+with the precision a surgeon wields their scalpel.
+
 What has been pushed has been witnessed;
 to rewrite witnessed history is to bear false witness.
 `git push --force` is the nuclear option —
-to be avoided in all but the most desperate circumstances.
-The reflog remembers what you have forgotten.
-You cannot commit too often. *You cannot.*
+to be avoided in public in all but the most
+desperate of circumstances.
+
+ABC — always be committing! What isn't committed
+cannot be restored once you have forgotten.
 
 Commit before building.
-A build from uncommitted state
-cannot be traced to a specific commit —
-cannot be reproduced,
-cannot be verified,
-cannot be trusted beyond
-"it worked on my machine."
-The build may alter the working directory itself;
-without the commit, the source is lost.
-Commit first. Build from known state.
-The reflog forgives; entropy does not.
+A build from uncommitted state cannot be traced,
+cannot be reproduced, cannot be verified,
+cannot be trusted.
+"worked on my machine" isn't an excuse, it's shameful.
 
 Commit in tiny, semantically contiguous bits:
 
-- Code on the main branch must build,
+- Every commit on the master branch must build,
   function properly, and pass tests at each commit
   - You may commit broken code locally
     or to a private branch —
-    but never push a broken commit to main.
-    The main branch is consecrated ground
+    but never push a broken commit to master.
+    The master branch is consecrated ground
 - Each message: a single line,
   approximately fifty characters
   - A high-level description that completes:
@@ -798,9 +799,9 @@ Commit in tiny, semantically contiguous bits:
   - Paths always relative to repo root
 
 The history shall be linear.
-Rebase — never merge.
+Rebase, then fast forward. Never merge.
 A merge commit is a knot in the narrative.
-The main branch is a single, unbroken chronicle —
+The master branch is a single, unbroken chronicle —
 each commit a sentence following the last.
 When your branch has fallen behind,
 rebase it upon the current truth.
