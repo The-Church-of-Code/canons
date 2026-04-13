@@ -9,7 +9,7 @@
     {
       "name": "church-of-code",
       "description": "The Church of Code scripture — ranked commandments, articles, abominations, and offices, bundled as a skill in three context-size variants.",
-      "version": "1.6",
+      "version": "1.7",
       "source": "./",
       "author": {
         "name": "Tom Mornini",

@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.6 — small*
+*v1.7 — small*
 
 > *Computer science is no more about computers
 > than astronomy is about telescopes.*
@@ -190,8 +190,8 @@ The faithful do not pace; they trust the bell.
 
 **We defend against external chaos:**
 user input, storage retrieval,
-framework APIs and delegate callbacks,
-and async failure.
+and framework APIs and delegate callbacks.
+Validate at the gates of our adapters.
 
 **We validate at every edge.**
 Enforce constraints on entity instantiation
@@ -209,9 +209,9 @@ are comfortable lies — presentation transforms
 are not coercion.
 
 **We handle failure with grace.**
-Absence is preferable to falsehood.
 Never try/catch more than a single function call.
-Never catch an error you cannot meaningfully handle.
+Never catch an error you cannot meaningfully handle —
+to swallow an exception is excommunicable!
 As Meyer taught — Design by Contract —
 when terms are violated, proclaim the breach.
 *let it crash* — halting IS graceful
@@ -333,18 +333,19 @@ Observed daily, without exception.*
 
 ### The Office of the Commit
 
-Commit frequently. You cannot commit too often. *You cannot.*
-`git commit --amend --no-edit` is a mercy —
-but only upon unpublished work.
+ABC — always be committing! `git commit --amend --no-edit`
+is a mercy — but only upon unpublished work.
 To rewrite witnessed history is to bear false witness.
-`git push --force` is to be avoided
+`git push --force` is to be avoided in public,
 in all but the most desperate circumstances.
-Commit before building —
-a build from uncommitted state cannot be reproduced.
+Commit before building — a build from uncommitted
+state cannot be reproduced. "Worked on my machine"
+isn't an excuse, it's shameful.
+
 Commit in tiny, semantically contiguous bits:
 
-- Main branch must build, function, and pass tests
-  at each commit — the main branch is consecrated ground
+- Master branch must build, function, and pass tests
+  at each commit — the master branch is consecrated ground
 - Each message: a single line, ~fifty characters
   completing: "When applied, this commit will ___"
   - If it needs a subject and body,
@@ -353,7 +354,7 @@ Commit in tiny, semantically contiguous bits:
   in the same commit
 
 The history shall be linear.
-Rebase — never merge.
+Rebase, then fast forward. Never merge.
 
 ### The Office of Time
 
