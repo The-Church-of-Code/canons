@@ -325,18 +325,13 @@ embrace it. Without apology.
 *True when the above eleven are honored.
 Chaotic when pursued prematurely.*
 
-As Dijkstra taught in his Turing Award lecture:
-the humble programmer knows
-the strictly limited size of his own skull
-and approaches every task with full respect
-for the difficulty of the endeavor.
-Efficiency emerges from that humility —
+Efficiency emerges from humility —
 from clarity, from simplicity,
 from code that can be reasoned about.
 
 Efficiency is not a goal — it is a consequence.
 Honor the commandments that precede this one
-and efficiency will follow…
+and efficiency will follow as surely
 as the harvest follows the planting.
 
 ### XII. Performance
@@ -345,7 +340,7 @@ Every wasted millisecond is a small death.
 In the UI, latency erodes fluidity.
 In high-frequency serial operations,
 it erodes throughput.
-Visible to the user… it erodes their finite
+Visible to the user, it erodes their finite
 patience.
 
 As Dan Luu documented: humans can perceive
@@ -353,12 +348,12 @@ cause/effect latency down to low single-digit
 milliseconds.
 
 As Ezra Zygmuntowicz taught — and this may be
-the truest statement on performance ever uttered:
+the truest statement on performance ever uttered -
 *no code is faster than no code.*
 Yet untold millions have spent large portions of
 their lives writing enormous amounts of code
-in failed attempts to make their applications
-faster.
+in nearly universally failed attempts to make
+their applications faster.
 
 ---
 
@@ -416,7 +411,7 @@ If a relationship demands more than this…
 it is not a relationship —
 it is an entity wearing a false name.
 
-**We believe in being informed of state changes,**
+**We believe in being informed of state changes**
 not in the anxious polling of the faithless.
 Gamma, Helm, Johnson, and Vlissides
 codified this as the Observer pattern.
@@ -425,13 +420,14 @@ The devout do not pace the hallway;
 they trust the bell.
 
 **We defend against external chaos** —
-for the world beyond our gates is profane:
+for the world beyond our gates is often profane:
 
-- Input: the voice of the uninstructed and frequently corrupt
-- Storage retrieval: what was written may not be what returns
+- Input: the voice of the uninstructed is frequently corrupt
+- Storage: what was written may rarely become corrupt, far
+  more commonly, it was stored incorrectly. Beware!
 - Framework APIs and delegate callbacks:
-  other people's dharma, not ours to trust blindly
-- Async failure: the uncertainty that lurks in every wire
+  other people's dharma, not ours to trust blindly, ours
+  to validate in our adapter.
 
 **We validate at every edge.**
 As Bertrand Meyer taught — Design by Contract —
@@ -439,29 +435,35 @@ the same prophet who gave us
 the Open/Closed Principle.
 Enforce constraints on entity instantiation
 — never downstream.
+
 Every noun entity attribute is NOT NULL.
+
 And once data has crossed
 the threshold of validation…
 trust it completely.
 No internal defensive coding "just in case."
-To distrust validated data
-is to lack faith in your peers and your own rites.
+To distrust validated data is to lack faith
+in your peers and rituals.
 
 **We handle failure with grace.**
 Degrade visibly rather than corrupt silently.
-Absence is preferable to falsehood.
+
 Never try/catch more than a single function call.
+
 Never catch an error you cannot meaningfully handle —
-to swallow an exception is to swallow a lie.
+to swallow an exception is is excommunicable!
+
 As Bertrand Meyer taught — Design by Contract —
 a function declares what it requires
 and what it guarantees.
 When those terms are violated,
 the failure is not an accident to recover from —
 it is a breach of covenant to be proclaimed.
+
 Distinguish expected failures from bugs:
 a network timeout is expected and handled;
 an impossible state is a bug… and must crash.
+
 Enrich errors at each boundary layer —
 the original fault plus the context
 of every step that touched it —
@@ -762,20 +764,27 @@ not an act of concealment.
 What if. *What if.*
 If the data has crossed the threshold of validation,
 it is clean. Trust it.
+
 To check a NOT NULL column for null downstream
 is to confess — right there in your own code —
 that you do not believe
 in your own validation rites.
-Internal defensive coding —
-guard clauses deep inside trusted boundaries…
-redundant nil checks on validated fields…
-"just in case" fallbacks within your own walls —
-is not prudence. It is FAITHLESSNESS.
+
+Beware these sinful practices!
+
+- guard clauses deep inside trusted boundaries
+- redundant nil checks on validated fields
+- "just in case" fallbacks within your own walls
+
+These are not prudent. They expose the FAITHLESS.
+
 It clutters the code with doubt,
 obscures the true logic,
+eliminates the comfort of solid footing,
 and teaches the next reader
 that the system's own contracts
-cannot be relied upon.
+are not to be trusted.
+
 Validate at the gates.
 Trust within the walls.
 
@@ -784,24 +793,23 @@ Trust within the walls.
 *"But a foreign key is just a reference!"*
 
 Just a reference. *Just.*
+
 As Edgar F. Codd established
 in his normalization principles:
 entities and relationships
 occupy separate relations.
+
 A foreign key is a denormalization —
 it fuses what should be independent,
 conflating identity with proximity.
-To chain two entities together through a foreign key
-is to bind two souls at the hip.
-When one moves, the other is dragged.
-When one is deleted… the other is orphaned
-or cascaded into oblivion.
-Relationships live in join tables —
-a clean separation worthy of the relational model.
+
+Declare relationships in join tables, a clean
+separation worthy of the relational model.
 
 And if you cry *performance* —
 performance is the TWELFTH commandment,
 the least important virtue.
+
 Both designs are O(n).
 A mere doubling of the constant factor.
 You would sell the sanctity
@@ -812,20 +820,25 @@ of your relationships for *that*?
 *"But it captures the IS-A relationship!"*
 
 IS-A. The oldest trap in the book.
+
 To derive when you should compose
 is to chain your future to your ancestor's past.
+
 As Barbara Liskov established:
 a subtype must honor every promise
 the parent type has made.
+
 Inheritance that violates this contract
 produces hierarchies that lie
 about substitutability —
 and a hierarchy that lies
 is worse than no hierarchy at all.
+
 Inheritance binds by lineage;
 composition binds by capability.
 When an ancestor changes…
 every descendant trembles.
+
 When a composed capability changes,
 only its callers notice —
 and they were prepared.
@@ -835,21 +848,26 @@ and they were prepared.
 *"But the library does everything we need!"*
 
 Everything you need… *today*.
+
 To call a third-party service
 without an adapter boundary
 is to weld your hull to the dock.
+
 When the dock is demolished…
 your ship sinks with it.
+
 As Fred Brooks taught in No Silver Bullet:
 every dependency is a bet
 that someone else's trajectory
 will match yours.
+
 Accidental complexity accrues
 at every weld point
 between your code and theirs.
 Every external dependency —
 library… service… framework —
 gets an adapter.
+
 No exceptions.
 
 ### On the Sin of Swallowed Failures
@@ -859,52 +877,68 @@ No exceptions.
 So you hide them. You *hide* them.
 A system that swallows exceptions and continues
 is a system that lies about its health.
+
 An empty catch block is not error handling —
-it is evidence destruction.
+it is destruction of evidence.
+
 A `log-and-continue` is a lie
 whispered to the next request,
 which will inherit corrupted state
 and fail in ways far harder to diagnose.
+
 As Joe Armstrong taught:
 *let it crash.*
+
 A process that halts on an unrecoverable error
-and is restarted clean
-is more trustworthy than one that limps onward
-with wounds it refuses to acknowledge.
-Halting IS graceful
-when the alternative is silent corruption.
+and is restarted clean is more trustworthy than
+one that limps onward with wounds it refuses to
+acknowledge.
+
+Halting IS graceful when the alternative is silent
+corruption.
 
 ### On the Sin of Asking, Not Telling
 
 *"But I need the return value!"*
 
 You *need* it. Do you?
+
 A function upon a noun returns what it produces.
+
 But a method upon a verb begins a process —
-passing results to communicating sequential processes,
-not back to the call site.
+passing results to communicating sequential
+processes, not back to the call site.
+
 To reach into an object for its internal state
 is to violate its sovereignty.
 An object is not a filing cabinet
-to be rummaged through.
-It is an agent… to be directed.
+to be rummaged through, it is an assistant to
+be utilized.
 
 ### On the Sin of Polling
 
 *"But I need to know when it's ready!"*
 
 Then *wait for it to tell you*.
+
 As Alan Kay envisioned:
-a system of cells communicating through messages
-does not poll — the message arrives
+a system of cells communicating through
+messages does not poll — the message arrives
 or it does not.
+
 To poll is to doubt the network itself,
 to confess that you do not trust
 the system you built to speak.
+
 Polling for state changes
 is the anxious ritual of the faithless —
 checking the mailbox every thirty seconds
 when the mail carrier has not yet left the depot.
+
+We are humble enough to realize that we
+are sometimes required to system not of the
+faith. Should they require us to poll them,
+poll we must.
 
 ### On the Sin of Scattered Context
 
@@ -913,22 +947,26 @@ when the mail carrier has not yet left the depot.
 Part of it. You only need *part* of it.
 Code execution should be a relay race:
 the baton is passed whole
-from runner to runner —
-not dismembered and reassembled at each handoff.
+from runner to runner — not dismembered
+and reassembled at each handoff.
+
 Reading a value here…
 writing it there…
 passing three fields to this function
-and four to that —
-this is the rally, not the drag race.
-As Lamport taught: causality requires
-that events carry their full history.
-Scattered context severs the causal chain,
-making it impossible to reconstruct
-what happened and why.
-Pass context whole. Enrich it as you go.
-When every method receives the full context,
-no method must wonder
-what was left behind.
+and four to that — this is the rally,
+not the drag race. As Lamport taught:
+causality requires that events carry
+their full history. Scattered context
+severs the causal chain, making it
+impossible to reconstruct what happened
+and why.
+
+Pass context whole through multi-step
+processes. Enrich it as you go.
+
+When every mainline process steps receive
+the full context, each method shall have
+everything that it needs.
 
 ### On the Sin of Noun-First Thinking
 
@@ -937,23 +975,27 @@ before I can build anything!"*
 
 No. You understand the data model
 BY understanding the processes.
-As Alan Kay lamented:
-he meant OOP to be about *messaging* —
-autonomous cells exchanging signals,
-like neurons in a brain
-or nodes on a network.
+
+As Alan Kay lamented: he meant OOP to be
+about *messaging* — autonomous cells
+exchanging signals, like neurons in a
+brain or nodes on a network.
+
 But the world heard "objects"
 and fixated on the nouns —
 class hierarchies, data models,
 entity-relationship diagrams drawn
 before a single process was understood.
+
 The noun-first instinct is what corrupted
 Kay's original vision.
+
 When you begin with the data model,
 you have already decided what participates
 before you know what the process requires —
 and every subsequent design decision
-is a negotiation with that premature commitment.
+is a negotiation with that premature
+commitment.
 
 ### On the Sin of Obscurity
 
@@ -961,20 +1003,24 @@ is a negotiation with that premature commitment.
 
 Works. It *works*.
 Working is not enough.
+
 Code that cannot be read cannot be trusted.
 Code that cannot be trusted cannot be maintained.
 Code that cannot be maintained will, in time,
 be rewritten by someone who does not understand it —
 and the cycle of suffering begins anew.
+
 As Peter Naur taught: programming
 is theory building.
 The program is not the artifact —
 the understanding is.
+
 When that understanding is lost…
 the code is a tomb with no inscription.
+
 Write so that the next reader —
 who may be you, six months hence —
-can rebuild the theory from the text alone.
+can rebuild the theory from the code alone.
 
 ### On the Sin of Cleverness
 
@@ -984,17 +1030,20 @@ Elegant. You think it's *elegant*.
 As K&R taught: debugging is twice as hard
 as writing the code in the first place —
 therefore, if you write the code
-as cleverly as possible,
-you are, by definition,
-not smart enough to debug it.
+as cleverly as possible, you are, by
+definition, not smart enough to debug it.
+
 Language-specific tricks and idioms
 that sacrifice readability for concision
 are the vanity of the undisciplined.
+
 Your clever one-liner impresses no one
 who must maintain it at midnight.
+
 Elegance is not concision —
 elegance is clarity under pressure.
-The karma of clever code… is a 3 AM page.
+The karma of clever code… is a 3 AM wake
+up call.
 
 ### On the Sin of Magical Values
 
@@ -1003,11 +1052,12 @@ The karma of clever code… is a 3 AM page.
 Everyone. *Everyone* knows.
 As Martin Fowler cataloged: replace magic literal
 with named constant.
-As Peter Naur taught: programming is theory building —
-and an unnamed constant
-is a piece of the theory left unspoken,
-a gap in the narrative
-that the next reader must fill by guessing.
+
+As Peter Naur taught: programming is theory
+building — and an unnamed constant is a piece
+of the theory left unspoken, a gap in the
+narrative that the next reader must fill.
+
 If a value has meaning… speak its name.
 If it has no meaning, question its existence.
 
@@ -1017,16 +1067,20 @@ If it has no meaning, question its existence.
 
 Category. *Taxonomy.*
 As Doug McIlroy taught in the Unix tradition:
-transparency is not a luxury —
-it is a survival trait.
-A directory five levels deep
-is a secret kept from the next developer,
-and secrets rot in the dark.
+transparency is not a luxury — it is a survival
+trait.
+
+A directory five levels deep is a secret kept
+from the next developer, and secrets rot in the
+dark.
+
 You should not need to descend a labyrinth
 to discover the domain.
-Deep nesting is taxonomy masquerading as architecture.
-It buries the important beneath layers
-of the incidental.
+
+Deep nesting is taxonomy masquerading as
+architecture. It buries the important beneath
+layers of the incidental.
+
 The Unix way is to make structure visible —
 not to bury it beneath ceremony.
 
@@ -1041,57 +1095,52 @@ Observed daily, without exception.*
 
 As the body requires hygiene, so does the code.
 
-- Wrap lines at seventy-eight characters
-  — the line is a breath, and the eye has limits
-  - Unless language or format compel otherwise
-  - Links and URLs are exempt —
-    a reference must not be broken
-- Prefer spaces — four of them — for indentation
-  - Unless the language or toolchain compels otherwise:
-    Go's `gofmt` has spoken; Makefiles have their syntax;
-    `mix format` is the voice of Elixir;
-    `prettier` the voice of JavaScript.
-    When the formatter has spoken, obey the formatter —
-    collateral chaos in service of preference is vanity
-  - When the choice is yours, choose spaces
-- No trailing whitespace, save the final newline
-- A newline shall follow the last line in every file
+Wrap lines at seventy-eight characters unless language
+or format compel otherwise. Links and URLs are exempt
+as a reference must not be broken. The line is a breath,
+and the eye has limits.
+
+Prefer spaces — four of them — for indentation, except as
+demanded by language or toolchain. Makefiles were chiseled
+into stone, `gofmt` has spoken, `mix format` is the voice
+of Elixir, `prettier` the voice of JavaScript.
+
+When the formatter has spoken, obey the formatter,
+collateral chaos in service of preference is vanity. No
+trailing whitespace, save the final newline. A newline
+shall follow the last line in every file.
 
 ### The Office of the Commit
 
-Commit frequently.
-`git commit --amend --no-edit` is a mercy
-granted to the diligent —
-but only upon unpublished work.
+Commit frequently. `git commit --amend --no-edit` is a
+mercy granted to the diligent and rewarded by git reflog.
+Only use the git magic in private where you should wield
+it the precision a surgeon wields their scapal.
+
 What has been pushed has been witnessed;
 to rewrite witnessed history is to bear false witness.
-`git push --force` is the nuclear option —
-to be avoided in all but the most desperate circumstances.
-The reflog remembers what you have forgotten.
-You cannot commit too often. *You cannot.*
+`git push --force` is the nuclear option — to be avoided
+in public in all but the most desperate of circumstances.
+
+ABC - always be commiting! What isn't commited cannot
+be restored once you have forgotten.
 
 Commit before building.
 A build from uncommitted state
-cannot be traced to a specific commit —
+cannot be traced,
 cannot be reproduced,
 cannot be verified,
-cannot be trusted beyond
-"it worked on my machine."
-The build may alter the working directory itself;
-without the commit, the source is lost.
-Commit first. Build from known state.
-The reflog forgives; entropy does not.
+cannot be trusted.
+
+"worked on my machine" isnt' an excuse, it's shameful.
 
 Commit in tiny, semantically contiguous bits:
 
-- Code on the master branch must build,
+- Every commit on the master branch must build,
   function properly, and pass tests at each commit
   - You may commit broken code locally
-    or to a private branch —
-    some code is too precious
-    to exist in a single copy —
-    but never push a broken commit to master.
-    The master branch is consecrated ground
+    or to a private branch but never push a broken
+    commit to master, which is consecrated ground
 - Each message: a single line,
   approximately fifty characters
   - A high-level description that completes:
@@ -1108,13 +1157,13 @@ Commit in tiny, semantically contiguous bits:
   - Paths always relative to repo root
 
 The history shall be linear.
-Rebase — never merge.
+Rebase, then fast forward. Never merge.
 A merge commit is a knot in the narrative —
 a confession that two timelines diverged
 and rather than reconcile the story,
 you lashed them together and moved on.
-The master branch is a single, unbroken chronicle —
-each commit a sentence,
+The master branch is a single, unbroken
+chronicle — each commit a sentence,
 each sentence following the last.
 When your branch has fallen behind,
 rebase it upon the current truth.
@@ -1125,9 +1174,8 @@ as though one mind wrote it in sequence.
 ### The Office of Time
 
 Persist all timestamps in RFC-3339,
-zulu timezone,
-with the fullest sub-second resolution
-the environment provides.
+zulu timezone, with the fullest sub-second
+resolution the environment provides.
 This is not negotiable.
 
 Render to local time for display and display alone.
