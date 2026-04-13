@@ -158,6 +158,23 @@ your agent reads at startup.
 The document is self-contained
 and requires no dependencies.
 
+**Alternative: Claude Code plugin marketplace**
+
+Claude Code users can install this scripture
+as a plugin skill instead of referencing
+the file from `CLAUDE.md`:
+
+```
+/plugin marketplace add tmornini/church-of-code
+/plugin install church-of-code@church-of-code-marketplace
+```
+
+The skill activates automatically on any
+coding task — no per-project setup required.
+This path is Claude Code-specific;
+other agents use the file-and-reference
+approach above.
+
 ## Contributing
 
 Amendments to scripture are proposed
