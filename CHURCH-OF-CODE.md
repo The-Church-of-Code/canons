@@ -548,9 +548,8 @@ only through adapters we own.
 This allows our application to be written
 entirely in our single voice.
 
-"If as one people speaking the same language
-they have begun to do this, then nothing they
-plan to do will be impossible for them." -- Paraphrased Genesis 11:6
+As Wittgenstein wrote in the Tractatus:
+the limits of my language mean the limits of my world.
 
 So taught Ra'Shaun Stovall:
 "it is not how fast you can marry a
