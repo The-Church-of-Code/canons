@@ -188,6 +188,11 @@ there to dwell in heat without end.
 
 *Call a thing a thing, in all things.*
 
+As Confucius taught in the Rectification of Names:
+if names be not correct, language is not
+in accordance with the truth of things,
+and affairs cannot be carried on to success.
+
 Software development is the discipline of readability
 through precise vocabulary.
 If code does not read correctly,
