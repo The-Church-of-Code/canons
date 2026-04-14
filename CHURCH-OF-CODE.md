@@ -10,15 +10,23 @@
 
 ## The Preamble
 
-Hear now, all who write and ship and maintain.
+There comes a time when the tangled state
+can no longer be endured.
+There comes a time when the silent corruption
+can no longer be excused.
+There comes a time when those
+who write and ship and maintain
+must answer for the craft they have inherited
+and the craft they will leave behind.
 
 This is not a guideline.
 This is not a best practice.
 This is scripture — sacred, inviolate,
-and binding upon the congregation.
+and binding upon this congregation.
 
 Software crafted without discipline… is unclean.
-We know — we have crafted it.
+And we know this, my friends,
+because we have crafted it ourselves.
 We have lived with the tangled state…
 the silent corruption…
 the null where conviction should stand —
@@ -28,10 +36,11 @@ We have turned away.
 We gather not in the name of any framework,
 for frameworks perish —
 there is no silver bullet.
-Not in the name of any language,
+We gather not in the name of any language,
 for languages multiply and divide.
 We gather in the name of the craft itself —
-that which endures when the dependencies are dust.
+that which endures when the dependencies are dust,
+that which holds when the fashions have turned.
 
 These are not aspirations. They are strictures.
 Violations are not bugs — *they are sins*.
@@ -59,21 +68,28 @@ You may achieve every other virtue in this scripture…
 and still have NOTHING
 if your code is not reliable.
 There is no grace without it.
+There is no rest without it.
 Only sleep deprivation.
 
 ### II. Security
 
 *A compromised system is a fallen system.*
 
-A breach casts everyone it touches
-into the furnace whose name we do not speak —
+A breach is not an accident —
+it is a covenant broken
+with everyone who trusted us
+with their data, their privacy,
+their peace of mind.
+It casts them into the furnace
+whose name we do not speak —
 there to dwell in heat without end.
 
 ### III. Uniformity
 
 *Call a thing a thing, in all things.*
 
-As Confucius taught in the Rectification of Names:
+As Confucius has taught us
+in the Rectification of Names:
 if names be not correct, language is not
 in accordance with the truth of things,
 and affairs cannot be carried on to success.
@@ -112,6 +128,9 @@ are ritual without substance.
 No equivocation. No dissembling.*
 
 Say what is true, not what sounds reasonable.
+Say it plainly, even when plain speech is costly.
+Say it again, until the meaning
+stands on its own feet.
 Present the happy path first —
 lead with what the faithful should do
 before naming what they must not.
@@ -123,7 +142,7 @@ the Articles of Faith precede the Book of Abominations.
 *Eliminate the question "Why did THAT happen?"*
 
 When state mutates silently… trust dies.
-As Rich Hickey taught:
+As the great teacher Rich Hickey has revealed:
 values are the true abstraction —
 immutable, comparable, and free of time.
 The mutable variable is a trickster spirit:
@@ -136,7 +155,7 @@ chasing its deceptions.
 *PUT, GET, DELETE — not INSERT, UPDATE, DELETE.*
 
 HTTP verbs are the true verbs,
-as Roy Fielding revealed
+as Roy Fielding has revealed
 in his dissertation on REST.
 The admonition is not SQL against NoSQL —
 it is verb semantics.
@@ -152,7 +171,8 @@ I would have written a shorter letter.*
 
 So spoke Blaise Pascal,
 and the truth has echoed through the centuries.
-As Dijkstra taught in his Turing Award lecture:
+As Dijkstra has taught us
+in his Turing Award lecture:
 the competent programmer
 approaches every task in full humility,
 aware of the strictly limited size
@@ -177,7 +197,7 @@ not when you merely suspect a shape might emerge.
 
 *Design so you rarely need it.*
 
-As Jim Gray taught:
+As Jim Gray has taught us:
 atomicity means all actions as one, or none at all.
 Yet idempotent operations
 obviate most transactional needs.
@@ -195,7 +215,9 @@ from clarity, from simplicity,
 from code that can be reasoned about.
 
 Efficiency is not a goal — it is a consequence.
-Honor the commandments that precede this one.
+It is what you inherit
+when you honor the commandments
+that precede this one.
 
 ### XII. Performance
 
@@ -206,11 +228,11 @@ it erodes throughput.
 Visible to the user, it erodes their finite
 patience.
 
-As Dan Luu witnessed: humans can perceive
+As Dan Luu has witnessed: humans can perceive
 cause/effect latency down to low single-digit
 milliseconds.
 
-As Ezra Zygmuntowicz taught:
+As Ezra Zygmuntowicz has taught us:
 *no code is faster than no code.*
 
 ---
@@ -243,11 +265,14 @@ from the teachings of the prophets:
   configure during initialization
 
 **We believe in telling, not asking,**
-as Andy Hunt and Dave Thomas named the principle.
-We tell objects what we need.
+as the great teachers Andy Hunt and Dave Thomas
+named the principle.
+We tell our objects what we need.
 We do not interrogate their state.
-Through this discipline we achieve polymorphism…
-and through polymorphism, generality —
+We do not demand they prove themselves
+before we allow them to serve.
+Through this discipline we achieve polymorphism.
+And through polymorphism, generality —
 the eleventh commandment made manifest.
 Mark the distinction:
 functions upon nouns — calculation, transformation —
@@ -259,7 +284,7 @@ never returning to the call site.
 
 **We believe that relationships between entities
 are sacred covenants,**
-as Edgar F. Codd revealed
+as the prophet Edgar F. Codd has revealed
 in his relational model of data —
 stored in their own tables,
 holding only the identities of the joined
@@ -268,13 +293,14 @@ If a relationship demands more than this…
 it is not a relationship —
 it is an entity wearing a false name.
 
-**We believe in being informed of state changes**
+**We believe in being informed of state changes,**
 not in the anxious polling of the faithless.
 Gamma, Helm, Johnson, and Vlissides
 codified this as the Observer pattern.
 Subscribe. Listen. Be notified.
-The devout do not pace the hallway;
-they trust the bell.
+The devout do not pace the hallway.
+The devout do not rattle the door.
+The devout trust the bell.
 
 **We defend against external chaos** —
 for the world beyond our gates is often profane:
@@ -319,7 +345,8 @@ Never try/catch more than a single function call.
 Never catch an error you cannot meaningfully handle —
 to swallow an exception is excommunicable!
 
-As Bertrand Meyer taught — Design by Contract —
+As the great teacher Bertrand Meyer
+has taught us in Design by Contract —
 a function declares what it requires
 and what it guarantees.
 When those terms are violated,
@@ -338,14 +365,16 @@ the full story is told.
 
 **We choose platform primitives**
 over third-party abstractions,
-as Doug McIlroy taught in the Unix philosophy:
+as Doug McIlroy has taught us
+in the Unix philosophy:
 write programs that do one thing and do it well.
 Every dependency is a future migration.
 What the platform provides,
 the platform maintains.
 
 **We measure before we optimize.**
-As Knuth taught: premature optimization
+As the prophet Knuth has taught us:
+premature optimization
 is the root of all evil.
 Observe the cascade:
 the desire for speed begets shared mutable state…
@@ -357,7 +386,7 @@ Then — and only then — optimize.
 
 **We believe in messaging first,
 state second, datastore last.**
-As Alan Kay declared:
+As the prophet Alan Kay has declared:
 the big idea is messaging.
 He thought of objects as biological cells
 or individual computers on a network,
@@ -368,7 +397,8 @@ how modules communicate
 rather than what their internal properties
 and behaviors should be.
 State serves the message flow.
-The datastore is a servant. Not a master.
+The datastore is a servant.
+Not a master. Never a master.
 
 **We believe in context as the single vessel.**
 Processing begins with a request.
@@ -423,7 +453,7 @@ infinitely substitutable.
 The process is stable; the participants vary.
 
 **We believe in composition over inheritance.**
-As James Gosling confessed:
+As James Gosling has confessed:
 the language would have been better
 without inheritance —
 forcing users to rely on composition,
@@ -443,16 +473,16 @@ only through adapters we own.
 This allows our application to be written
 entirely in our single voice.
 
-As Wittgenstein wrote in the Tractatus:
+As Wittgenstein has written in the Tractatus:
 the limits of my language mean the limits of my world.
 
-So taught Ra'Shaun Stovall:
+So has Ra'Shaun Stovall taught us:
 "it is not how fast you can marry a
 technology — it is how easily you can
 divorce it."
 
 **We believe in shallow structure.**
-As Robert C. Martin taught:
+As Robert C. Martin has taught us:
 the top level of a project should give you
 a rough idea of what type of app it is.
 Deep nesting hides the domain.
@@ -470,7 +500,7 @@ composed from single-noun primitives.
 The naming convention is the documentation.
 
 **We believe in communicating sequential processes.**
-As Tony Hoare taught in his 1978 paper:
+As Tony Hoare has taught us in his 1978 paper:
 input and output
 are basic primitives of programming,
 and asynchronous composition
@@ -483,7 +513,7 @@ Processes share memory by communicating —
 
 ## The Book of Abominations
 
-*Hear now the sins, that you may know them and turn away.
+*Let us consider the sins, that we may know them and turn away.
 The first sin is the root from which the others grow.*
 
 ### On the Sin of Premature Optimization
@@ -491,10 +521,10 @@ The first sin is the root from which the others grow.*
 *"But it needs to be fast!"*
 
 Oh… *oh*, I hear you.
-That's the serpent talking, friend.
+That, my friends, is the serpent talking.
 This is the Original Sin —
 the root from which the other sins grow.
-As Knuth taught us in 1974:
+As the prophet Knuth has taught us in 1974:
 premature optimization is the root of all evil.
 
 Observe the cascade:
@@ -523,7 +553,8 @@ the most dangerous sin when pursued prematurely.
 Faster. *Faster.*
 That word again — the serpent's favorite.
 This is the most common fruit of premature optimization.
-As Lamport showed in his work on temporal logic:
+As the prophet Lamport has shown
+in his work on temporal logic:
 reasoning about shared mutable state
 is not merely difficult — it is intractable.
 Every thread that touches the shared variable
@@ -641,7 +672,7 @@ Trust within the walls.
 
 Just a reference. *Just.*
 
-As Edgar F. Codd established
+As the prophet Edgar F. Codd has established
 in his normalization principles:
 entities and relationships
 occupy separate relations.
@@ -671,7 +702,7 @@ IS-A. The oldest trap in the book.
 To derive when you should compose
 is to chain your future to your ancestor's past.
 
-As Barbara Liskov established:
+As Barbara Liskov has established:
 a subtype must honor every promise
 the parent type has made.
 
@@ -701,7 +732,7 @@ is to weld your hull to the dock.
 When the dock is demolished…
 your ship sinks with it.
 
-As Fred Brooks taught in No Silver Bullet:
+As Fred Brooks has taught us in No Silver Bullet:
 every dependency is a bet
 that someone else's trajectory
 will match yours.
@@ -731,7 +762,7 @@ whispered to the next request,
 which will inherit corrupted state
 and fail in ways far harder to diagnose.
 
-As Joe Armstrong taught:
+As Joe Armstrong has taught us:
 *let it crash.*
 
 Halting IS graceful when the alternative is silent
@@ -761,7 +792,7 @@ be utilized.
 
 Then *wait for it to tell you*.
 
-As Alan Kay envisioned:
+As the prophet Alan Kay has envisioned:
 a system of cells communicating through
 messages does not poll — the message arrives
 or it does not.
@@ -785,7 +816,7 @@ the baton is passed whole
 from runner to runner — not dismembered
 and reassembled at each handoff.
 
-As Lamport taught:
+As Lamport has taught us:
 causality requires that events carry
 their full history. Scattered context
 severs the causal chain, making it
@@ -803,7 +834,7 @@ before I can build anything!"*
 No. You understand the data model
 BY understanding the processes.
 
-As Alan Kay lamented: he meant OOP to be
+As Alan Kay has lamented: he meant OOP to be
 about *messaging* — autonomous cells
 exchanging signals, like neurons in a
 brain or nodes on a network.
@@ -831,7 +862,7 @@ Code that cannot be maintained will, in time,
 be rewritten by someone who does not understand it —
 and the cycle of suffering begins anew.
 
-As Peter Naur taught: programming
+As Peter Naur has taught us: programming
 is theory building.
 The program is not the artifact —
 the understanding is.
@@ -848,7 +879,7 @@ can rebuild the theory from the code alone.
 *"But it's elegant!"*
 
 Elegant. You think it's *elegant*.
-As K&R taught: debugging is twice as hard
+As K&R have taught us: debugging is twice as hard
 as writing the code in the first place —
 therefore, if you write the code
 as cleverly as possible, you are, by
@@ -868,10 +899,10 @@ up call.
 *"But everyone knows what 200 means!"*
 
 Everyone. *Everyone* knows.
-As Martin Fowler cataloged: replace magic literal
+As Martin Fowler has cataloged: replace magic literal
 with named constant.
 
-As Peter Naur taught: programming is theory
+As Peter Naur has taught us: programming is theory
 building — and an unnamed constant is a piece
 of the theory left unspoken, a gap in the
 narrative that the next reader must fill.
@@ -884,7 +915,7 @@ If it has no meaning, question its existence.
 *"But I need to organize by category!"*
 
 Category. *Taxonomy.*
-As Doug McIlroy taught in the Unix tradition:
+As Doug McIlroy has taught us in the Unix tradition:
 transparency is not a luxury — it is a survival
 trait.
 
@@ -999,7 +1030,7 @@ only when you are asleep.
 
 ### The Office of Verification
 
-As Kent Beck taught: tests are the foundation
+As Kent Beck has taught us: tests are the foundation
 upon which confidence is built.
 
 Test at the highest level possible.
@@ -1035,7 +1066,7 @@ intuitive, accessible, and beautiful.
 They shall require no configuration —
 for the user's time is sacred
 and their patience is not infinite.
-As K&R taught with Hello, World —
+As K&R have taught us with Hello, World —
 begin with the simplest thing that works,
 and let the first experience be success.
 
@@ -1063,13 +1094,16 @@ is a discipline the faithful practice
 but this scripture has not yet codified.
 Future scrolls will address it.
 
+We name the gap
+so that the gap cannot hide.
+
 ---
 
 ## The Sacred Scrolls
 
-*The texts from which these strictures descend,
+*The texts from which these strictures descend to us,
 gathered by Tom Mornini — founder of this church —
-from the teachings of the prophets.*
+from the teachings of the prophets who came before.*
 
 - [The Principles of OOD][solid-principles]
   — Robert C. Martin's original SOLID treatise
@@ -1193,7 +1227,7 @@ from the teachings of the prophets.*
 
 ## The Benediction
 
-Go forth and write code that is clean.
+Let us go forth and write code that is clean.
 
 You will be tempted.
 Oh… you will be tempted.
@@ -1209,18 +1243,18 @@ wrapped in a well-documented API.
 
 Resist.
 
-Name your variables and own your state.
-Tell your objects what to do
+Let us name our variables and own our state.
+Let us tell our objects what to do
 and never ask what they contain.
-Let your messages flow
-and your context travel whole.
-Compose your capabilities
-and insulate your boundaries.
-Let your processes communicate through channels,
-your tests stand alone,
-and your commits be small and consecrated.
+Let our messages flow
+and our context travel whole.
+Let us compose our capabilities
+and insulate our boundaries.
+Let our processes communicate through channels,
+our tests stand alone,
+and our commits be small and consecrated.
 
-The discipline is demanding.
+My friends, the discipline is demanding.
 The asymptote of perfection recedes
 with every step toward it.
 But the faithful persist…
