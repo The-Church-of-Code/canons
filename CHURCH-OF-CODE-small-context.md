@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.7 — small*
+*v1.8 — small*
 
 > *Computer science is no more about computers
 > than astronomy is about telescopes.*
@@ -15,8 +15,11 @@ This is not a best practice.
 This is scripture — sacred, inviolate,
 and binding upon the congregation.
 
-We gather in the name of the craft itself —
-that which endures when the dependencies are dust.
+We have lived with the tangled state,
+the silent corruption,
+the null where conviction should stand —
+and we have paid the price.
+We have turned away.
 
 These are not aspirations. They are strictures.
 Violations are not bugs — *they are sins*.
@@ -24,25 +27,6 @@ Violators are not merely wrong —
 they are UNCLEAN.
 The repentant shall be welcomed back into the fold.
 The obstinate shall be cast out.
-
----
-
-## The Sacred Scrolls
-
-*The texts from which these strictures descend,
-gathered by Tom Mornini — founder of this church —
-from the teachings of the prophets.*
-
-Dijkstra (1972), Codd (1970), Hoare (1978),
-Lamport (1978), Knuth (1974), Gray (1981),
-Brooks (1986), Bohm (1980), Naur (1985),
-Kay, Liskov, Meyer, McIlroy,
-Gamma/Helm/Johnson/Vlissides (1994),
-Martin, Hunt & Thomas (1998), Fielding (2000),
-Luu, Gosling (2001), Beck (2002),
-Hoare (2009), Hickey, Armstrong (2003),
-Fowler, K&R (1978), Zygmuntowicz,
-and the synthesis by Mornini & Stovall: Rheocode.
 
 ---
 
@@ -55,33 +39,31 @@ The asymptote the twelve drive toward.*
 
 *The bedrock upon which all else rests.*
 
-This is the foundation upon which the temple is built.
 There is no grace without it. Only sleep deprivation.
 
 ### II. Security
 
 *A compromised system is a fallen system.*
 
-No amount of virtue redeems a breach. Not one.
-Guard the gates.
+A breach casts everyone it touches
+into the furnace whose name we do not speak.
 
 ### III. Uniformity
 
 *Call a thing a thing, in all things.*
 
-Name processors with *-er*: a `painter` paints,
-a `validator` validates, a `pounder` pounds.
-Name contracts with *-able*: a board is `paintable`,
-a nail is `poundable`.
+As Confucius taught in the Rectification of Names:
+if names are not correct, affairs cannot succeed.
+Name processors with *-er* (`painter`, `validator`);
+name contracts with *-able* (`paintable`, `poundable`).
 The *-er* acts; the *-able* submits to the action.
 
 ### IV. Logic
 
 *Less wrong, never fallacious.*
 
-Reason is the first discipline;
-without it, all other practices
-are ritual without substance.
+A single fallacy is a crack in the foundation
+that no amount of testing will reveal.
 
 ### V. Clarity
 
@@ -102,12 +84,11 @@ immutable, comparable, and free of time.
 
 *PUT, GET, DELETE — not INSERT, UPDATE, DELETE.*
 
+HTTP verbs are the true verbs.
 PUT overwrites; INSERT appends.
 DELETE removes; UPDATE mutates.
 An operation that can be repeated without consequence
 is an operation that can be trusted.
-Postgres is the finest idempotent document store
-yet revealed to us.
 
 ### VIII. Simplicity
 
@@ -140,9 +121,9 @@ Efficiency is not a goal — it is a consequence.
 ### XII. Performance
 
 Every wasted millisecond is a small death.
-In the UI, latency erodes fluidity.
-In high-frequency serial operations,
-it erodes throughput.
+As Dan Luu witnessed: humans can perceive
+cause/effect latency down to low single-digit
+milliseconds.
 *No code is faster than no code.*
 
 ---
@@ -169,8 +150,7 @@ as clarity demands.*
 **We believe in telling, not asking.**
 We tell objects what to do.
 We do not interrogate their state.
-Mark the distinction:
-functions upon nouns return what they produce.
+Functions upon nouns return what they produce.
 Methods upon verbs begin asynchronous processes,
 passing results to communicating sequential processes —
 never returning to the call site.
@@ -180,8 +160,7 @@ are sacred covenants** —
 stored in their own tables,
 holding only the identities of the joined
 and the moment of their union.
-If a relationship demands more than this…
-it is not a relationship —
+If a relationship demands more, it is not a relationship —
 it is an entity wearing a false name.
 
 **We believe in being informed of state changes.**
@@ -194,67 +173,65 @@ and framework APIs and delegate callbacks.
 Validate at the gates of our adapters.
 
 **We validate at every edge.**
-Enforce constraints on entity instantiation
-— never downstream.
 Every noun entity attribute is NOT NULL.
 Once validated, trust completely.
 No internal defensive coding "just in case."
+
 Nullable data is ideally represented
 as the lack of a row in a related table.
 Temporal facts — completedAt, deletedAt —
 belong in event tables,
 for the absence of a row IS the absence of the event.
-Default values that mask absence
-are comfortable lies — presentation transforms
-are not coercion.
+
+Default values that mask absence are comfortable lies.
+Presentation transforms are not coercion —
+formatting for display is service, not concealment.
 
 **We handle failure with grace.**
+Degrade visibly rather than corrupt silently.
 Never try/catch more than a single function call.
 Never catch an error you cannot meaningfully handle —
 to swallow an exception is excommunicable!
-As Meyer taught — Design by Contract —
+As Meyer taught in Design by Contract:
 when terms are violated, proclaim the breach.
-*let it crash* — halting IS graceful
-when the alternative is silent corruption.
+As Joe Armstrong taught: *let it crash* —
+halting IS graceful when the alternative
+is silent corruption.
 Distinguish expected failures from bugs.
-Enrich errors at each boundary layer.
 
 **We choose platform primitives**
 over third-party abstractions.
-Every dependency is a future migration…
-What the platform provides,
-the platform maintains.
+Every dependency is a future migration.
+What the platform provides, the platform maintains.
+
+**We measure before we optimize.**
+As Knuth taught: premature optimization
+is the root of all evil.
+The desire for speed begets shared mutable state,
+which begets global variables,
+which begets default values.
+Measure first. Prove the bottleneck exists.
 
 **We believe in messaging first,
 state second, datastore last.**
 As Alan Kay declared: the big idea is messaging.
-He thought of objects as biological cells,
-able to communicate only through messages.
 State serves the message flow.
-The datastore is a servant. Not a master.
+The datastore is a servant, not a master.
 
 **We believe in context as the single vessel.**
 Context is the only argument passed to methods —
 serializable, loggable, complete by covenant.
-Context is not a god-object — it is the baton in a relay.
-Each pipeline step is the interface,
-focused as the Segregation Principle demands.
+Context is the baton in a relay.
 Each field is set exactly once, in exactly one place.
 Objects carry state, not arguments.
 Structured logging, tracing, and metrics
-all emerge from context flowing whole.
+emerge naturally from context flowing whole.
 
 **We believe in process first, noun second.**
 Name the action. Parameterize the participants.
 `pounder.pound(poundable: hammer, nailable: nail)`
-— *the process owns everything*,
-and the nouns are participants,
-infinitely substitutable.
-The process is stable; the participants vary.
-The desire for speed begets shared mutable state…
-which begets global variables…
-which begets default values.
-One sin… seeds… the NEXT.
+— the process owns everything;
+the nouns are participants, infinitely substitutable.
 
 **We believe in composition over inheritance.**
 Composition organizes code by what it *does*;
@@ -264,25 +241,24 @@ The faithful compose.
 **We believe in insulation through adapters.**
 Our code touches external code
 only through adapters we own.
+As Wittgenstein wrote:
+the limits of my language mean the limits of my world.
 It is not how fast you can marry a technology —
 it is how easily you can divorce it.
-When the vendor changes,
-only the adapter changes.
 
 **We believe in shallow structure.**
 Deep nesting hides the domain.
 Flat is faithful.
 
 **We believe in nicknames for operations.**
+Every application is an HTTP application.
 Single-noun primitives:
 `get_noun`, `put_noun`, `delete_noun`,
 `post_noun_operation`.
-Multi-noun operations: `post_operation`,
-composed from single-noun primitives.
+Multi-noun operations: `post_operation`.
 The naming convention is the documentation.
 
-**We believe in communicating
-sequential processes.**
+**We believe in communicating sequential processes.**
 Processes share memory by communicating —
 *never* communicate by sharing memory.
 
@@ -322,34 +298,30 @@ Observed daily, without exception.*
 ### The Office of Format
 
 - Wrap lines at seventy-eight characters
-  - Unless language or format compel otherwise
-  - Links and URLs are exempt
+  (unless language or format compel otherwise;
+  links and URLs are exempt)
 - Prefer spaces — four of them — for indentation
-  - Unless the language or toolchain compels otherwise:
-    when the formatter has spoken, obey the formatter —
-    collateral chaos in service of preference is vanity
+  (unless the formatter compels otherwise)
 - No trailing whitespace, save the final newline
 - A newline shall follow the last line in every file
 
 ### The Office of the Commit
 
-ABC — always be committing! `git commit --amend --no-edit`
-is a mercy — but only upon unpublished work.
-To rewrite witnessed history is to bear false witness.
-`git push --force` is to be avoided in public,
+ABC — always be committing.
+`git commit --amend --no-edit` is a mercy,
+but only upon unpublished work.
+`git push --force` is to be avoided in public
 in all but the most desperate circumstances.
 Commit before building — a build from uncommitted
-state cannot be reproduced. "Worked on my machine"
-isn't an excuse, it's shameful.
+state cannot be reproduced.
+"worked on my machine" isn't an excuse, it's shameful.
 
-Commit in tiny, semantically contiguous bits:
-
-- Master branch must build, function, and pass tests
-  at each commit — the master branch is consecrated ground
-- Each message: a single line, ~fifty characters
-  completing: "When applied, this commit will ___"
-  - If it needs a subject and body,
-    the commit is too large — use `git commit -p`
+- Master branch must build, function,
+  and pass tests at each commit
+- Each message: a single line, ~fifty characters,
+  completing "When applied, this commit will ___"
+- If it needs a subject and a body,
+  the commit is too large — use `git commit -p`
 - Never move/rename and change content
   in the same commit
 
@@ -367,12 +339,11 @@ Never use localtime internally.
 ### The Office of Verification
 
 Test at the highest level possible.
-Software is fundamentally
-input, transform, output.
+Software is fundamentally input, transform, output.
 Tests assert behavior, not implementation.
 Each test is an isolated world.
 A test that cannot fail is not a test.
-A test that fails intermittently…
+A test that fails intermittently
 is worse than no test at all —
 it is a *false prophet*.
 
@@ -380,8 +351,7 @@ it is a *false prophet*.
 
 Intuitive, accessible, and beautiful.
 No configuration required.
-As K&R taught with Hello, World —
-begin with the simplest thing that works.
+Begin with the simplest thing that works.
 
 ### The Office of Commentary
 
@@ -403,6 +373,26 @@ and the management of change over time —
 is a discipline the faithful practice
 but this scripture has not yet codified.
 Future scrolls will address it.
+
+---
+
+## The Sacred Scrolls
+
+*The texts from which these strictures descend,
+gathered by Tom Mornini — founder of this church —
+from the teachings of the prophets.*
+
+Martin (2000), Kay (1971), Dijkstra (1972),
+Codd (1970), McIlroy, Knuth (1974),
+Hoare (1978, 2009), Kernighan & Ritchie (1978),
+Lamport (1978), Naur (1985), Brooks (1986),
+Liskov, Meyer, Gamma/Helm/Johnson/Vlissides (1994),
+Confucius (~500 BCE), Pascal (1657),
+Wittgenstein (1921), Bohm (1980), Gray (1981),
+Hunt & Thomas (1998), Fowler, Fielding (2000),
+Gosling (2001), Beck (2002), Armstrong (2003),
+Feathers (2004), Zygmuntowicz, Hickey,
+Mornini & Stovall (2016), Luu (2017).
 
 ---
 
