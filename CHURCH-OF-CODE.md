@@ -271,12 +271,6 @@ PUT overwrites; INSERT appends.
 DELETE removes; UPDATE mutates.
 An operation that can be repeated without consequence
 is an operation that can be trusted.
-Let it be known:
-Postgres is the finest idempotent document store
-yet revealed to us —
-for it speaks both tongues,
-and the faithful command it
-with HTTP semantics.
 
 ### VIII. Simplicity
 
