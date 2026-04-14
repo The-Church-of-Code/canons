@@ -333,7 +333,7 @@ it erodes throughput.
 Visible to the user, it erodes their finite
 patience.
 
-As Dan Luu documented: humans can perceive
+As Dan Luu witnessed: humans can perceive
 cause/effect latency down to low single-digit
 milliseconds.
 
