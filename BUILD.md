@@ -110,12 +110,12 @@ earns its keep survives. Cuts are surgical.
 |---------|----------|
 | Title + Epigraph | Verbatim |
 | Preamble | Verbatim |
-| Sacred Scrolls | Remove the URL reference-link block at the end of the section. Convert `[text][ref]` markdown links to plain text. Keep all annotated entries with author, title, and description. |
 | Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Luu latency thresholds). |
 | Articles of Faith | Keep all 17 "We believe..." openings verbatim. Trim the 3 longest articles (Handle-failure, Process-first, Context-vessel) by ~30%. Keep the pounder.pound example once. |
 | Book of Abominations | Keep all 18 titles + italic objections. Sins with unique doctrine get 4-6 lines. Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
 | Daily Offices | Keep all 6 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, etc.). Trim metaphorical flourishes only. |
 | Unwritten Scrolls | Verbatim |
+| Sacred Scrolls | Remove the URL reference-link block at the end of the section. Convert `[text][ref]` markdown links to plain text. Keep all annotated entries with author, title, and description. |
 | Benediction | Verbatim |
 
 ---
@@ -136,12 +136,12 @@ collapses to a compact roster.
 |---------|----------|
 | Title + Epigraph | Verbatim |
 | Preamble | Condense to authority-establishing essentials. Keep "This is scripture" framing and "Violations are not bugs — they are sins." Cut the middle paragraphs about frameworks and heathens. |
-| Sacred Scrolls | Section heading + intro + compact author roster: names and years in paragraph form, no annotations, no URLs. |
 | Twelve Commandments | All 12 headings + italic summaries. 0-1 sentences of elaboration per commandment — only when the italic alone is insufficient (e.g., III needs the -er/-able rule, VII needs the verb semantics). |
 | Articles of Faith | All 17 "We believe..." sentences + 1-2 essential operational sentences each. |
 | Book of Abominations | Section heading + intro + all 18 sins as compact single lines: `**On [Name]** — *"[italic objection]"*` No body text. The section must exist because the document self-references it ("the Articles of Faith precede the Book of Abominations"). |
 | Daily Offices | All 6 offices, all specific rules preserved. Strip all metaphor. |
 | Unwritten Scrolls | Verbatim |
+| Sacred Scrolls | Section heading + intro + compact author roster: names and years in paragraph form, no annotations, no URLs. |
 | Benediction | Keep: commissioning line, "Resist.", positive-practice summary (trimmed), identity block, closing incantation. Cut temptation litany and prophet enumeration. |
 
 ### Unique teachings — where they live in v1.8+
