@@ -38,51 +38,59 @@ never from removing topics.
 The document follows a **positive-negative-practical** pattern:
 
 1. **Commandments** declare ranked virtues
-2. **Articles of Faith** state operational beliefs
+2. **Articles of Faith** state operational beliefs (17 in v1.8)
 3. **Book of Abominations** restates most of the above as sins
 4. **Daily Offices** operationalize the beliefs
 
-The Abominations section (~30% of the full document) is
-**conceptually** redundant — 15 of 18 sins address the same
-doctrinal topics as a Commandment or Article. However, each
-sin uses a **different prophetic witness** (a different
-prophet or teaching) to support the same conclusion. No text
-is duplicated between sections. This conceptual redundancy
-remains the primary lever for both reductions: the sins'
-elaboration can be trimmed because the doctrine is covered
-in the positive-form sections, even though the specific
-supporting arguments are unique.
+The Abominations section is **conceptually redundant** — 15 of 18
+sins address the same doctrinal topics as a Commandment or
+Article. Each sin uses a **different prophetic witness** (a
+different prophet or teaching) to support the same conclusion.
+This **dual-channel pedagogy** — virtue stated positively in the
+Article, trap named negatively in the Sin — is the scripture's
+primary teaching mechanism, and the conceptual redundancy
+remains the primary lever for both reductions.
 
-### Sins with unique doctrine (must be preserved)
+### The hoisted teachings (v1.8+)
 
-These three contain content not found elsewhere:
+Three sins historically carried unique doctrine not found
+anywhere else. In v1.8, that doctrine was **hoisted** into the
+Articles of Faith:
 
 - **Premature Optimization**: the cascade narrative —
   speed begets shared mutable state, which begets global
   variables, which begets default values. Also the structural
   inversion note (XII is the least virtue, its corruption
-  is the first sin). Also the Knuth/Hoare authorship
-  dispute and "root of all evil" quote.
+  is the first sin).
+  Hoisted into: **"We measure before we optimize"** (article 17).
 - **Null**: row-absence data modeling — nullable data
   represented as absence of a row in a related table.
   Temporal facts (completedAt, deletedAt) in event tables.
+  Hoisted into: **"We validate at every edge"**.
 - **Default Values**: the presentation-transforms distinction —
   formatting for display is service, not coercion.
+  Hoisted into: **"We validate at every edge"**.
+
+In the full and medium variants, these teachings remain in both
+the Abominations and the Articles — intentional redundancy,
+dual-channel pedagogy. In the small variant, where Abominations
+collapse to header-only form, the Articles become the sole home
+for the doctrine. This is a natural inheritance from the source,
+not a build-time migration.
 
 ### Sins with partially unique content
 
 - **Obscurity**: Naur's theory-building insight
-- **Cleverness**: K&R's debugging-vs-cleverness teaching;
-  "The karma of clever code is a 3 AM page"
+- **Cleverness**: K&R's debugging-vs-cleverness teaching
 - **Asking, Not Telling**: "zero return to the call site"
 
-### Sins with unique prophetic witnesses (12 of 18)
+### Sins with unique prophetic witnesses
 
-Each of these sins cites a different prophet than
-its corresponding Article or Commandment. The doctrinal
-topic is shared; the supporting argument is unique.
-The witness elaboration is the content trimmed during
-reductions — the sin's topic is always preserved.
+Most sins cite a different prophet than their corresponding
+Article or Commandment. The doctrinal topic is shared; the
+supporting argument is unique. The witness elaboration is the
+content trimmed during reductions — the sin's topic is always
+preserved.
 
 Example: The Article on CSP cites Hoare;
 the Sin of Shared Mutable State cites Lamport.
@@ -104,7 +112,7 @@ earns its keep survives. Cuts are surgical.
 | Preamble | Verbatim |
 | Sacred Scrolls | Remove the URL reference-link block at the end of the section. Convert `[text][ref]` markdown links to plain text. Keep all annotated entries with author, title, and description. |
 | Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Luu latency thresholds). |
-| Articles of Faith | Keep all 16 "We believe..." openings verbatim. Trim the 3 longest articles (Handle-failure, Process-first, Context-vessel) by ~30%. Keep the pounder.pound example once. |
+| Articles of Faith | Keep all 17 "We believe..." openings verbatim. Trim the 3 longest articles (Handle-failure, Process-first, Context-vessel) by ~30%. Keep the pounder.pound example once. |
 | Book of Abominations | Keep all 18 titles + italic objections. Sins with unique doctrine get 4-6 lines. Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
 | Daily Offices | Keep all 6 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, etc.). Trim metaphorical flourishes only. |
 | Unwritten Scrolls | Verbatim |
@@ -130,19 +138,28 @@ collapses to a compact roster.
 | Preamble | Condense to authority-establishing essentials. Keep "This is scripture" framing and "Violations are not bugs — they are sins." Cut the middle paragraphs about frameworks and heathens. |
 | Sacred Scrolls | Section heading + intro + compact author roster: names and years in paragraph form, no annotations, no URLs. |
 | Twelve Commandments | All 12 headings + italic summaries. 0-1 sentences of elaboration per commandment — only when the italic alone is insufficient (e.g., III needs the -er/-able rule, VII needs the verb semantics). |
-| Articles of Faith | All 16 "We believe..." sentences + 1-2 essential operational sentences each. **Absorb unique abomination content here** (see migration table below). |
+| Articles of Faith | All 17 "We believe..." sentences + 1-2 essential operational sentences each. |
 | Book of Abominations | Section heading + intro + all 18 sins as compact single lines: `**On [Name]** — *"[italic objection]"*` No body text. The section must exist because the document self-references it ("the Articles of Faith precede the Book of Abominations"). |
 | Daily Offices | All 6 offices, all specific rules preserved. Strip all metaphor. |
 | Unwritten Scrolls | Verbatim |
 | Benediction | Keep: commissioning line, "Resist.", positive-practice summary (trimmed), identity block, closing incantation. Cut temptation litany and prophet enumeration. |
 
-### Unique abomination content migration (small only)
+### Unique teachings — where they live in v1.8+
 
-| Doctrine | Source Sin | Target Article |
-|----------|-----------|----------------|
-| Cascade narrative (speed → mutable state → globals → defaults) | Premature Optimization | Process First (at end) |
-| Row-absence modeling, temporal facts in event tables | Null | Validate at Every Edge |
-| Presentation transforms vs. coercion distinction | Default Values | Validate at Every Edge |
+The three teachings previously migrated during the small build
+are now in the source Articles of Faith (hoisted in v1.8):
+
+| Doctrine | Article |
+|----------|---------|
+| Cascade narrative (speed → mutable state → globals → defaults) | **We measure before we optimize** |
+| Row-absence modeling, temporal facts in event tables | **We validate at every edge** |
+| Presentation transforms vs. coercion distinction | **We validate at every edge** |
+
+In the full and medium variants, these teachings also remain
+in the corresponding Abominations (Premature Optimization, Null,
+Default Values) as the dual-channel negative framing. The small
+build does not need to perform any migration — the doctrine
+flows naturally from the source into all three variants.
 
 ---
 
@@ -179,14 +196,14 @@ and is the first to be trimmed.
 
 1. **Medium context first** — work from the full, section by section
 2. **Small context second** — work from the medium version,
-   applying further cuts + structural changes (abomination migration)
+   applying further cuts (Abominations collapse to headers)
 
 Within each file, process sections in this order:
 
 1. Book of Abominations (largest cut, most complex)
 2. Sacred Scrolls (clean mechanical operation)
 3. Twelve Commandments (trim elaboration)
-4. Articles of Faith (trim; absorb abomination content for small)
+4. Articles of Faith (trim)
 5. Daily Offices (trim metaphor, preserve rules)
 6. Preamble and Benediction last (ensures proportion with interior)
 7. Byte-count check and final adjustment
@@ -199,7 +216,7 @@ After creating each file:
 
 1. `wc -c` — verify byte count is within target (±5%)
 2. Grep for `^### [IVX]` — confirm 12 commandments
-3. Grep for `^\*\*We ` — confirm 16 articles
+3. Grep for `^\*\*We ` — confirm 17 articles
 4. Grep for all 18 sin names — confirm present
 5. Grep for `^### The Office` — confirm 6 offices
 6. Grep for `"But ` — confirm 18 italic objections
