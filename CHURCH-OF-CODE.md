@@ -124,7 +124,7 @@ from the teachings of the prophets.*
   — Rich Hickey's trilogy on immutability
 - [Rheocode Software Development][rheocode]
   — the synthesis, named for Bohm's rheomode
-  — Tom Mornini and Ra'Shaun Stovall (2016-01-22)
+  — Tom Mornini and Ra'Shaun Stovall (2016)
 - [Computer latency: 1977-2017][input-lag]
   — Dan Luu on latency
 
