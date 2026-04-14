@@ -18,11 +18,12 @@ This is scripture — sacred, inviolate,
 and binding upon the congregation.
 
 Software crafted without discipline… is unclean.
-Those who craft it are heathens.
-We have seen their works —
-the tangled state… the silent corruption…
+We know — we have crafted it.
+We have lived with the tangled state…
+the silent corruption…
 the null where conviction should stand —
-and we have turned away.
+and we have paid the price.
+We have turned away.
 
 We gather not in the name of any framework,
 for frameworks perish —
