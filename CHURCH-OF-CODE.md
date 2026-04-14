@@ -637,7 +637,6 @@ which begets default values.
 One sin… seeds… the NEXT.
 
 Never optimize what you have not measured.
-Never optimize what is not a bottleneck.
 To optimize prematurely
 is to sacrifice clarity
 on the altar of a phantom god.
@@ -664,9 +663,6 @@ Every thread that touches the shared variable
 multiplies the possible interleavings,
 and the space of states to reason about
 grows beyond the capacity of any mortal mind.
-To pass a mutable reference between threads
-is to invite a race condition to dinner…
-and hand it the carving knife.
 If two processes need the same data,
 one sends a message; the other receives it.
 There is no third way.
@@ -684,7 +680,6 @@ first argued: uncontrolled shared state is chaos.
 Global variables whisper
 to every corner of the codebase,
 and none can say who spoke first or who last.
-They are the chaos from which we fled.
 Cast them out.
 
 ### On the Sin of Null
@@ -695,9 +690,7 @@ Optional. *Optional.*
 As Hoare himself confessed — the prophet
 who introduced null references in 1965
 called it his billion-dollar mistake.
-Let this be understood
-with the fullness it deserves:
-the sin is not merely the nullable column.
+The sin is not merely the nullable column.
 The sin is reaching for null
 whenever the domain offers
 richer alternatives.
@@ -714,8 +707,6 @@ for the absence of a row IS the absence of the event.
 This is the deeper principle:
 nullable data is ideally represented
 as the lack of a row in a related table.
-The row exists when the fact is true.
-The row is absent when the fact is not.
 No null. No sentinel. No ambiguity.
 
 This is not a minor preference.
@@ -740,7 +731,6 @@ behind a fiction of completeness.
 If a value has a sensible default,
 define it as a named constant
 and pass it explicitly.
-Let the call site declare its intention.
 
 Mark well this distinction:
 presentation transforms are not coercion.
@@ -820,9 +810,7 @@ the parent type has made.
 
 Inheritance that violates this contract
 produces hierarchies that lie
-about substitutability —
-and a hierarchy that lies
-is worse than no hierarchy at all.
+about substitutability.
 
 Inheritance binds by lineage;
 composition binds by capability.
@@ -879,11 +867,6 @@ and fail in ways far harder to diagnose.
 As Joe Armstrong taught:
 *let it crash.*
 
-A process that halts on an unrecoverable error
-and is restarted clean is more trustworthy than
-one that limps onward with wounds it refuses to
-acknowledge.
-
 Halting IS graceful when the alternative is silent
 corruption.
 
@@ -920,11 +903,6 @@ To poll is to doubt the network itself,
 to confess that you do not trust
 the system you built to speak.
 
-Polling for state changes
-is the anxious ritual of the faithless —
-checking the mailbox every thirty seconds
-when the mail carrier has not yet left the depot.
-
 We are humble enough to realize that we
 are sometimes required to integrate with
 systems not of the faith. Should they
@@ -940,23 +918,16 @@ the baton is passed whole
 from runner to runner — not dismembered
 and reassembled at each handoff.
 
-Reading a value here…
-writing it there…
-passing three fields to this function
-and four to that — this is the rally,
-not the drag race. As Lamport taught:
+As Lamport taught:
 causality requires that events carry
 their full history. Scattered context
 severs the causal chain, making it
 impossible to reconstruct what happened
 and why.
 
-Pass context whole through multi-step
-processes. Enrich it as you go.
-
-When every mainline process steps receive
-the full context, each method shall have
-everything that it needs.
+When every mainline method receives
+the full context, each shall receive
+useful gifts passed down from its ancestors.
 
 ### On the Sin of Noun-First Thinking
 
@@ -971,14 +942,8 @@ about *messaging* — autonomous cells
 exchanging signals, like neurons in a
 brain or nodes on a network.
 
-But the world heard "objects"
-and fixated on the nouns —
-class hierarchies, data models,
-entity-relationship diagrams drawn
-before a single process was understood.
-
-The noun-first instinct is what corrupted
-Kay's original vision.
+The world heard objects and fixated on the nouns,
+corrupting Kay's original vision.
 
 When you begin with the data model,
 you have already decided what participates
@@ -1027,9 +992,6 @@ Language-specific tricks and idioms
 that sacrifice readability for concision
 are the vanity of the undisciplined.
 
-Your clever one-liner impresses no one
-who must maintain it at midnight.
-
 Elegance is not concision —
 elegance is clarity under pressure.
 The karma of clever code… is a 3 AM wake
@@ -1063,9 +1025,6 @@ trait.
 A directory five levels deep is a secret kept
 from the next developer, and secrets rot in the
 dark.
-
-You should not need to descend a labyrinth
-to discover the domain.
 
 Deep nesting is taxonomy masquerading as
 architecture. It buries the important beneath
