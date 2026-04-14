@@ -49,76 +49,84 @@ The obstinate shall be cast out.
 gathered by Tom Mornini — founder of this church —
 from the teachings of the prophets.*
 
+- [The Principles of OOD][solid-principles]
+  — Robert C. Martin's original SOLID treatise
+- [Solid Relevance][solid-relevance]
+  — the same prophet, revisiting his teachings
+  twenty years hence
+- [The Early History of Smalltalk][smalltalk],
+  [The Big Idea Is Messaging][messaging-email],
+  and [The Meaning of OOP][kay-oop]
+  — Alan Kay on objects and messages (1971)
 - [The Humble Programmer][humble-programmer]
   — Edsger Dijkstra's Turing Award lecture (1972)
 - [A Relational Model of Data][relational-model]
   — Edgar F. Codd's revelation (1970)
-- [Communicating Sequential Processes][csp]
-  — Tony Hoare's foundational paper (1978)
-- [Time, Clocks, and the Ordering
-  of Events in a Distributed System][time-clocks]
-  — Leslie Lamport on causality (1978)
+- [A Research UNIX Reader][unix-reader]
+  — Doug McIlroy on the Unix philosophy
 - [Structured Programming
   with go to Statements][premature-opt]
   — Donald Knuth on optimization (1974)
-- [The Transaction Concept][transaction-concept]
-  — Jim Gray on atomicity (1981)
-- [No Silver Bullet][no-silver-bullet]
-  — Fred Brooks on essence and accident (1986)
-- [Wholeness and the Implicate Order][rheomode]
-  — David Bohm on the rheomode (1980)
+- [Communicating Sequential Processes][csp]
+  — Tony Hoare's foundational paper (1978)
+- [Null References:
+  The Billion Dollar Mistake][billion-dollar]
+  — Tony Hoare's confession (2009)
+- [The C Programming Language][k-and-r]
+  — Brian Kernighan and Dennis Ritchie (K&R)
+    on simplicity, clarity, and the shortest path (1978)
+- [Time, Clocks, and the Ordering
+  of Events in a Distributed System][time-clocks]
+  — Leslie Lamport on causality (1978)
 - [Programming as Theory Building][theory-building]
   — Peter Naur on understanding
   over documentation (1985)
-- [The Early History of Smalltalk][smalltalk],
-  [The Big Idea Is Messaging][messaging-email],
-  and [The Meaning of OOP][kay-oop]
-  — Alan Kay on objects and messages
+- [No Silver Bullet][no-silver-bullet]
+  — Fred Brooks on essence and accident (1986)
 - [Data Abstraction and Hierarchy][liskov-87]
   and [A Behavioral Notion of Subtyping][liskov-94]
   — Barbara Liskov on substitution
 - [Object-Oriented Software Construction][oosc]
   and [Applying Design by Contract][dbc]
   — Bertrand Meyer on openness and contracts
-- [A Research UNIX Reader][unix-reader]
-  — Doug McIlroy on the Unix philosophy
 - [Design Patterns][design-patterns]
   — Gamma, Helm, Johnson, and Vlissides (1994)
-- [The Principles of OOD][solid-principles]
-  — Robert C. Martin's original SOLID treatise
-- [Solid Relevance][solid-relevance]
-  — the same prophet, revisiting his teachings
-  twenty years hence
+- [The Analects][analects]
+  — Confucius on the Rectification of Names (~500 BCE)
+- [Lettres Provinciales][provinciales]
+  — Blaise Pascal on brevity (1657)
+- [Tractatus Logico-Philosophicus][tractatus]
+  — Ludwig Wittgenstein on language and world (1921)
+- [Wholeness and the Implicate Order][rheomode]
+  — David Bohm on the rheomode (1980)
+- [The Transaction Concept][transaction-concept]
+  — Jim Gray on atomicity (1981)
 - [Tell, Don't Ask][tell-dont-ask]
   — Andy Hunt and Dave Thomas (1998)
+- [Replace Magic Literal][magic-literal]
+  — Martin Fowler's refactoring catalog
 - [Representational State Transfer][rest]
   — Roy Fielding's dissertation, Chapter 5 (2000)
-- [Computer latency: 1977-2017][input-lag]
-  — Dan Luu on latency
 - [James Gosling on Java][gosling]
   — the creator's regret about inheritance (2001)
 - [Test-Driven Development: By Example][tdd]
   — Kent Beck (2002)
-- [Null References:
-  The Billion Dollar Mistake][billion-dollar]
-  — Tony Hoare's confession (2009)
+- [Making Reliable Distributed Systems
+  in the Presence of Software Errors][armstrong-thesis]
+  — Joe Armstrong on letting it crash (2003)
+- [Working Effectively with Legacy Code][feathers]
+  — Michael Feathers, who coined the SOLID acronym (2004)
+- [Merb: no code is faster than no code][merb]
+  — Ezra Zygmuntowicz
 - [Simple Made Easy][simple-made-easy],
   [The Value of Values][value-of-values], and
   [Are We There Yet?][are-we-there-yet]
   — Rich Hickey's trilogy on immutability
-- [Making Reliable Distributed Systems
-  in the Presence of Software Errors][armstrong-thesis]
-  — Joe Armstrong on letting it crash (2003)
-- [Replace Magic Literal][magic-literal]
-  — Martin Fowler's refactoring catalog
-- [The C Programming Language][k-and-r]
-  — Brian Kernighan and Dennis Ritchie (K&R)
-    on simplicity, clarity, and the shortest path (1978)
-- [Merb: no code is faster than no code][merb]
-  — Ezra Zygmuntowicz
 - [Rheocode Software Development][rheocode]
   — the synthesis, named for Bohm's rheomode
-  — Tom Mornini and Ra'Shaun Stovall
+  — Tom Mornini and Ra'Shaun Stovall (2016-01-22)
+- [Computer latency: 1977-2017][input-lag]
+  — Dan Luu on latency
 
 [humble-programmer]: https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html
 [relational-model]: https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf
@@ -154,6 +162,10 @@ from the teachings of the prophets.*
 [magic-literal]: https://refactoring.com/catalog/replaceMagicLiteral.html
 [merb]: https://en.wikipedia.org/wiki/Merb
 [rheocode]: https://docs.google.com/presentation/d/1wA8qGe9fXHTPv_t6FsoV_EQz5V9u9CP7EL0zYSNQ5Nw
+[analects]: https://en.wikipedia.org/wiki/Analects
+[provinciales]: https://en.wikipedia.org/wiki/Lettres_provinciales
+[tractatus]: https://en.wikipedia.org/wiki/Tractatus_Logico-Philosophicus
+[feathers]: https://en.wikipedia.org/wiki/SOLID
 
 ---
 
