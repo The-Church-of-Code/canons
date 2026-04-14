@@ -280,8 +280,6 @@ aware of the strictly limited size
 of his own skull.
 Simplicity is not the absence of effort —
 it is the fruit of GREAT effort.
-As K&R demonstrated: C is not a big language,
-and it is not well served by a big book.
 
 ### IX. Generality
 
@@ -412,9 +410,6 @@ for the world beyond our gates is often profane:
   to validate in our adapter.
 
 **We validate at every edge.**
-As Bertrand Meyer taught — Design by Contract —
-the same prophet who gave us
-the Open/Closed Principle.
 Enforce constraints on entity instantiation
 — never downstream.
 
@@ -623,11 +618,7 @@ That's the serpent talking, friend.
 This is the Original Sin —
 the root from which the other sins grow.
 As Knuth taught us in 1974:
-premature optimization is the root of all evil —
-though he credited Hoare,
-who denied it, and some credit Dijkstra.
-The origin is disputed;
-the truth is not.
+premature optimization is the root of all evil.
 
 Observe the cascade:
 the desire for speed begets shared mutable state…
