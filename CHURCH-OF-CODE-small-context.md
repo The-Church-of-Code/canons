@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.9 — small*
+*v1.10 — small*
 
 > *Computer science is no more about computers
 > than astronomy is about telescopes.*
