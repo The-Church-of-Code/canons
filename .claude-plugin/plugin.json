@@ -1,7 +1,7 @@
 {
   "name": "church-of-code",
   "description": "The Church of Code scripture — a ranked hierarchy of commandments, articles of faith, abominations, and daily offices, bundled as a Claude Code skill in three context-size variants.",
-  "version": "1.9",
+  "version": "1.10",
   "author": {
     "name": "Tom Mornini",
     "email": "tmornini@me.com"
