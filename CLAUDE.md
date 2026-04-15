@@ -67,6 +67,16 @@ Each file carries `*v{N} — {size}*` immediately below the title. The git tag a
 7. `git tag v{N}`
 8. `git push && git push --tags`
 
+## Commit Discipline
+
+Commits in this repo follow the **Office of the Commit** from the scripture — applied recursively to work on the scripture itself.
+
+- Single subject line, ~50 characters
+- Imperative mood: "When applied, this commit will ___"
+- **No body.** If a commit needs a body, it is too large — split it with `git commit -p` instead
+
+A repository publishing commit discipline must obey it first.
+
 ## Document Structure
 
 The scripture follows a **positive-negative-practical** pattern: Commandments declare ranked virtues → Articles state operational beliefs → Abominations restate most as sins (15 of 18 are purely redundant inversions) → Daily Offices operationalize the beliefs. This asymmetry — the Abominations' redundancy — is the primary lever for both reductions.
