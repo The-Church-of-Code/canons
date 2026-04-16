@@ -99,61 +99,48 @@ In order of importance, from most to least:
 
 ## The Prophets
 
-The strictures stand on the shoulders of:
+The strictures stand on the shoulders of
+the field's foundational thinkers —
+Dijkstra, Codd, Hoare, Kay, Liskov, Brooks,
+and many more. The complete roster, with each
+teaching cited to its source, lives in the
+**Sacred Scrolls** section of
+[CHURCH-OF-CODE.md](CHURCH-OF-CODE.md).
 
-Dijkstra, Codd, Hoare, Lamport,
-Knuth, Gray, Brooks, Bohm,
-Naur, Kay, Liskov, Meyer,
-Gamma, Helm, Johnson, Vlissides,
-McIlroy, Fielding, Martin, Beck,
-Hunt, Thomas, Pascal, Gosling,
-Hickey, Armstrong, Fowler, Luu,
-Kernighan, Ritchie, Feathers,
-Zygmuntowicz, and Stovall.
+## Choosing a Variant
 
-Each teaching is cited with its source
-in the Sacred Scrolls.
+Three variants of the scripture are maintained
+in sync. Pick the largest that fits your
+context budget:
+
+| Variant | File | Size | When to use |
+|---------|------|------|-------------|
+| Full | [CHURCH-OF-CODE.md](CHURCH-OF-CODE.md) | ~40 KB (~10k tokens) | Default. Full literary voice and prophetic witnesses. |
+| Medium | [CHURCH-OF-CODE-medium-context.md](CHURCH-OF-CODE-medium-context.md) | ~28 KB (~7k tokens) | Tighter context budgets. Trimmed elaboration, same breadth. |
+| Small | [CHURCH-OF-CODE-small-context.md](CHURCH-OF-CODE-small-context.md) | ~13 KB (~3k tokens) | Strict context budgets. Every doctrine still present. |
+
+Every commandment, article, sin, and office
+is present in all three.
 
 ## How to Use This
 
-Copy `CHURCH-OF-CODE.md` into your project root
-or point to this repository's raw URL.
-Then reference it in your AI agent configuration.
+Copy the variant you chose into your project
+root, or point to this repository's raw URL.
+Then reference it in your agent's configuration
+file with a single line:
 
-**Claude Code** — add to your `CLAUDE.md`:
-```markdown
-All work must follow CHURCH-OF-CODE.md — read it
-before making changes.
-```
+> All work must follow CHURCH-OF-CODE.md — read it before making changes.
 
-**Gemini** — add to your `GEMINI.md`:
-```markdown
-All work must follow CHURCH-OF-CODE.md — read it
-before making changes.
-```
+Common agent configuration files:
 
-**GitHub Copilot** — add to your
-`.github/copilot-instructions.md`:
-```markdown
-All work must follow CHURCH-OF-CODE.md — read it
-before making changes.
-```
-
-**Cursor** — add to your `.cursorrules`:
-```markdown
-All work must follow CHURCH-OF-CODE.md — read it
-before making changes.
-```
-
-**Windsurf** — add to your `.windsurfrules`:
-```markdown
-All work must follow CHURCH-OF-CODE.md — read it
-before making changes.
-```
-
-**Any other AI coding agent** — add the same
-instruction to whatever configuration file
-your agent reads at startup.
+| Agent | Configuration file |
+|-------|--------------------|
+| Claude Code | `CLAUDE.md` |
+| Gemini | `GEMINI.md` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Cursor | `.cursorrules` |
+| Windsurf | `.windsurfrules` |
+| Any other | whatever file your agent reads at startup |
 
 The document is self-contained
 and requires no dependencies.
@@ -248,6 +235,10 @@ rather than standing above them.
 
 Amendments to scripture are proposed
 through GitHub pull requests.
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+for the amendment process and
+[BUILD.md](BUILD.md) for how to rebuild
+the variants in sync.
 
 ## License
 

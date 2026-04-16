@@ -1,0 +1,20 @@
+name: Verify scripture
+
+on:
+  push:
+    branches: [master]
+    tags: ['v*']
+  pull_request:
+    branches: [master]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Need tags so the version-sync check can compare against the latest v*.
+          fetch-depth: 0
+
+      - name: Run verification checks
+        run: bash scripts/verify.sh
