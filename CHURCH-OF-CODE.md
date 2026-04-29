@@ -451,6 +451,12 @@ and metrics are context aggregation.
 The faithful do not bolt on observability —
 they carry it in the vessel from the start.
 
+And the vessel, my friends, is a bag whose sole
+responsibility is to BE the bag. Two reads see one
+truth. Three reads see one truth. Not for speed —
+for ATOMICITY. Speed is the consequence; atomicity
+is the goal.
+
 **We believe in process first, noun second.**
 As the physicist David Bohm taught
 in his rheomode — the flowing mode of language:
