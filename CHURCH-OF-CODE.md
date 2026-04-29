@@ -344,6 +344,12 @@ Mark well: presentation transforms are not coercion.
 Formatting a value for display is an act of service,
 not an act of concealment.
 
+And when a value is truly absent, my friends, model
+that absence at the call site — not in the helper.
+The helper that swallows two truths LIES. The helper
+trusts; the call site decides. Presentation transforms
+render absence; helpers shall not pretend it.
+
 **We handle failure with grace.**
 Degrade visibly rather than corrupt silently.
 
