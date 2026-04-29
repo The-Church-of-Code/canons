@@ -1339,11 +1339,11 @@ Their teachings are our foundation.
 Their scrolls are our inheritance —
 the only inheritance we permit.
 
-This church is its own denomination.
-Its scripture is this document.
-Its founder is Tom Mornini.
-Its congregation is this team.
-Its sacrament is the craft.
+This church is its own denomination — born of older
+churches, drawing from prophets who disagreed.
+Its scripture is this document — assembled, not invented.
+Its scribe is Tom Mornini — the synthesis is his;
+the doctrines are not.
 
 So let it compile.
 So let it deploy.
