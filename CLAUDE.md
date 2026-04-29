@@ -42,16 +42,21 @@ When the full scripture changes, both variants must be regenerated. Read BUILD.m
 
 **Editorial rules**: For the complete set of rules applied to amendments of the canonical scripture (Sacred Scrolls ordering, prophet citation density, metaphor density, serpent voice, preamble register), see [README.md](README.md#editorial-rules).
 
-**Small variant structural transformation**: In v1.8+, the 3 unique-doctrine teachings (Premature Optimization cascade, Null row-absence, Default Values coercion distinction) are hoisted into the Articles of Faith in the canonical source, so the small variant inherits them naturally. The small variant's only structural transformation is collapsing Abominations to header-only form (`**On [Name]** — *"[italic objection]"*`), relying on the Articles to carry the doctrine.
+**Small variant structural transformation**: In v1.8+, unique-doctrine teachings (Premature Optimization family framing, Null row-absence, Default Values coercion distinction) are hoisted into the Articles of Faith in the canonical source, so the small variant inherits them naturally. The small variant's only structural transformation is collapsing Abominations to header-only form (`**On [Name]** — *"[italic objection]"*`), relying on the Articles to carry the doctrine.
 
 **Verification** (after each variant):
 - `wc -c` — byte count within ±5% of target
 - `grep -c '^### [IVX]'` — exactly 12 commandments
-- `grep -c '^\*\*We '` — exactly 17 articles
-- All 18 sin names present
-- `grep -c '^### The Office'` — exactly 6 offices
-- `grep -c '"But '` — exactly 18 italic objections
+- Article count: exactly 17 — use awk-piped grep since one Article begins with "Every":
+  ```bash
+  awk '/^## The Articles of Faith/,/^## The Book of Abominations/' \
+    CHURCH-OF-CODE.md | grep -c '^\*\*'
+  ```
+- All 20 sin names present
+- `grep -c '^### The Office'` — exactly 7 offices
+- `grep -c '"But '` — exactly 20 italic objections
 - Tonal anchors preserved: "scripture", "they are sins", "faithful", "let it crash", "own denomination", "So let it"
+- Benediction prophet count: 36 names
 
 ## Version and Release
 
@@ -79,4 +84,4 @@ A repository publishing commit discipline must obey it first.
 
 ## Document Structure
 
-The scripture follows a **positive-negative-practical** pattern: Commandments declare ranked virtues → Articles state operational beliefs → Abominations restate most as sins (15 of 18 are purely redundant inversions) → Daily Offices operationalize the beliefs. This asymmetry — the Abominations' redundancy — is the primary lever for both reductions.
+The scripture follows a **positive-negative-practical** pattern: Commandments declare ranked virtues → Articles state operational beliefs → Abominations diagnose most as sins (Articles teach belief; Abominations teach diagnosis) → Daily Offices operationalize the beliefs. The Abomination/Article relationship is the primary lever for both reductions: each Abomination focuses on what the sin looks like in code while the Article carries the doctrine.

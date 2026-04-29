@@ -60,45 +60,44 @@ never from removing topics.
 The document follows a **positive-negative-practical** pattern:
 
 1. **Commandments** declare ranked virtues
-2. **Articles of Faith** state operational beliefs (17 in v1.8)
-3. **Book of Abominations** restates most of the above as sins
-4. **Daily Offices** operationalize the beliefs
+2. **Articles of Faith** state operational beliefs (17 in v1.11)
+3. **Book of Abominations** diagnoses most as sins (20 in v1.11)
+4. **Daily Offices** operationalize the beliefs (7 in v1.11)
 
-The Abominations section is **conceptually redundant** — 15 of 18
-sins address the same doctrinal topics as a Commandment or
-Article. Each sin uses a **different prophetic witness** (a
-different prophet or teaching) to support the same conclusion.
-This **dual-channel pedagogy** — virtue stated positively in the
-Article, trap named negatively in the Sin — is the scripture's
-primary teaching mechanism, and the conceptual redundancy
-remains the primary lever for both reductions.
+The Abominations section uses **dual-channel pedagogy** — virtue
+stated positively in the Article, sin diagnosed negatively in
+its corresponding Abomination. **Articles teach belief; Abominations
+teach diagnosis.** Each Abomination focuses on what the sin looks
+like in committed code (symptoms, tells); the Article carries the
+doctrine. This division of labor is the primary teaching mechanism
+and the primary lever for both reductions.
 
-### The hoisted teachings (v1.8+)
+### The hoisted teachings (v1.8+, refined v1.11)
 
-Three sins historically carried unique doctrine not found
-anywhere else. In v1.8, that doctrine was **hoisted** into the
-Articles of Faith:
+Doctrine that historically lived in the Abominations is **hoisted**
+into the Articles of Faith. The Abominations focus on diagnosis;
+the Articles carry the belief.
 
-- **Premature Optimization**: the cascade narrative —
-  speed begets shared mutable state, which begets global
-  variables, which begets default values. Also the structural
-  inversion note (XII is the least virtue, its corruption
-  is the first sin).
-  Hoisted into: **"We measure before we optimize"** (article 17).
+- **Premature Optimization**: the family framing —
+  premature optimization, shared mutable state, global state,
+  and default values are children of impatience, not links in
+  a causal chain. Also the structural inversion note (XII is
+  the least virtue, its corruption is the first sin).
+  Hoisted into: **"We measure before we optimize"**.
 - **Null**: row-absence data modeling — nullable data
   represented as absence of a row in a related table.
-  Temporal facts (completedAt, deletedAt) in event tables.
+  Temporal facts (completedAt, deletedAt) in event tables;
+  removal as TOMBSTONE.
   Hoisted into: **"We validate at every edge"**.
 - **Default Values**: the presentation-transforms distinction —
   formatting for display is service, not coercion.
   Hoisted into: **"We validate at every edge"**.
 
-In the full and medium variants, these teachings remain in both
-the Abominations and the Articles — intentional redundancy,
-dual-channel pedagogy. In the small variant, where Abominations
-collapse to header-only form, the Articles become the sole home
-for the doctrine. This is a natural inheritance from the source,
-not a build-time migration.
+In v1.11, the Abominations on Premature Optimization, Null, and
+Default Values are trimmed to *diagnostic only* — symptoms and
+tells in code — while the Article carries the doctrine. In the
+small variant, where Abominations collapse to header-only form,
+the Articles become the sole home for the doctrine.
 
 ### Sins with partially unique content
 
@@ -132,10 +131,10 @@ earns its keep survives. Cuts are surgical.
 |---------|----------|
 | Title + Epigraph | Verbatim |
 | Preamble | Verbatim |
-| Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Luu latency thresholds). |
-| Articles of Faith | Keep all 17 "We believe..." openings verbatim. Trim the 3 longest articles (Handle-failure, Process-first, Context-vessel) by ~30%. Keep the pounder.pound example once. |
-| Book of Abominations | Keep all 18 titles + italic objections. Sins with unique doctrine get 4-6 lines. Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
-| Daily Offices | Keep all 6 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, etc.). Trim metaphorical flourishes only. |
+| Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Luu latency thresholds, mistake/fallacy distinction). |
+| Articles of Faith | Keep all 17 Article openings verbatim (most begin with "We"; one with "Every"). Trim the longest articles (Handle-failure, Process-first, Context-vessel, Validate-at-every-edge) by ~30%. Keep the pounder.pound example once. |
+| Book of Abominations | Keep all 20 titles + italic objections. Articles teach belief; Abominations teach diagnosis. Sins with diagnostic content get 4-6 lines (symptoms, tells). Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
+| Daily Offices | Keep all 7 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, force-push as catastrophe-only, commit-before-build workflow, etc.). Trim metaphorical flourishes only. |
 | Unwritten Scrolls | Verbatim |
 | Sacred Scrolls | Remove the URL reference-link block at the end of the section. Convert `[text][ref]` markdown links to plain text. Keep all annotated entries with author, title, and description. |
 | Benediction | Verbatim |
@@ -159,10 +158,10 @@ of the source structure.
 |---------|----------|
 | Title + Epigraph | Verbatim |
 | Preamble | Condense the confessional retrospective to essentials. Keep "This is scripture" framing, "Violations are not bugs — they are sins," and the three prefigurative images (tangled state, silent corruption, null where conviction should stand). Cut the framework/language negative creed. |
-| Twelve Commandments | All 12 headings + italic summaries. 0-1 sentences of elaboration per commandment — only when the italic alone is insufficient (e.g., III needs the -er/-able rule, VII needs the verb semantics). |
-| Articles of Faith | All 17 "We believe..." sentences + 1-2 essential operational sentences each. |
-| Book of Abominations | Section heading + intro + all 18 sins as compact single lines: `**On [Name]** — *"[italic objection]"*` No body text. The section must exist because the document self-references it ("the Articles of Faith precede the Book of Abominations"). |
-| Daily Offices | All 6 offices, all specific rules preserved. Strip all metaphor. |
+| Twelve Commandments | All 12 headings + italic summaries. 0-1 sentences of elaboration per commandment — only when the italic alone is insufficient (e.g., III needs the -er/-able rule, VII needs the verb semantics, IV benefits from the mistake/fallacy distinction). |
+| Articles of Faith | All 17 Article opening sentences + 1-2 essential operational sentences each. |
+| Book of Abominations | Section heading + intro + all 20 sins as compact single lines: `**On [Name]** — *"[italic objection]"*` No body text. The section must exist because the document self-references it ("the Articles of Faith precede the Book of Abominations"). |
+| Daily Offices | All 7 offices, all specific rules preserved. Strip all metaphor. |
 | Unwritten Scrolls | Verbatim |
 | Sacred Scrolls | Section heading + intro + compact author roster: names and years in paragraph form, no annotations, no URLs. |
 | Benediction | Keep: commissioning line, "Resist.", positive-practice summary (trimmed), identity block, closing incantation. Cut temptation litany and prophet enumeration. |
@@ -204,14 +203,14 @@ and is the first to be trimmed.
 - "This is scripture" (Preamble)
 - "Violations are not bugs — they are sins" (Preamble)
 - "The faithful" / "the congregation" (throughout)
-- All 18 italic objections ("But it's elegant!" etc.)
+- All 20 italic objections ("But it's elegant!" etc.)
 - "let it crash" (Sin: Swallowed Failures in full/medium;
   Article: Handle-failure in small, since sins are header-only)
 - "This church is its own denomination" (Benediction)
-- Dijkstra telescopes epigraph (all three sizes)
+- Dijkstra epigraph: "Simplicity is prerequisite for reliability." (all three sizes)
 - "So let it compile. So let it deploy. So let it run smoothly. So you can rest." (closing)
 - Roman numeral commandment format
-- "We believe in..." creedal openings for all Articles
+- Article creedal openings — most begin with "We", one with "Every"
 
 ---
 
@@ -239,14 +238,20 @@ After creating each file:
 
 1. `wc -c` — verify byte count is within target (±5%)
 2. Grep for `^### [IVX]` — confirm 12 commandments
-3. Grep for `^\*\*We ` — confirm 17 articles
-4. Grep for all 18 sin names — confirm present
-5. Grep for `^### The Office` — confirm 6 offices
-6. Grep for `"But ` — confirm 18 italic objections
+3. Article count — confirm 17. Use awk-piped grep since one
+   Article begins with "Every" rather than "We":
+   ```bash
+   awk '/^## The Articles of Faith/,/^## The Book of Abominations/' \
+     CHURCH-OF-CODE.md | grep -c '^\*\*'
+   ```
+4. Grep for all 20 sin names — confirm present
+5. Grep for `^### The Office` — confirm 7 offices
+6. Grep for `"But ` — confirm 20 italic objections
 7. Grep for tonal anchors: scripture, "they are sins",
    faithful, "let it crash", "own denomination",
    "So let it"
-8. Read the complete file to verify natural flow
+8. Benediction prophet count — confirm 36 names
+9. Read the complete file to verify natural flow
    and consistent scriptural voice
 
 ---
