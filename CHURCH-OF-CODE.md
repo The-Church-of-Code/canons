@@ -331,6 +331,13 @@ Temporal facts — completedAt, deletedAt —
 belong in event tables,
 for the absence of a row IS the absence of the event.
 
+Mark the pattern, my friends: when an entity is
+removed, it shall not carry the temporal stain. Name
+the deletion in its own table — a TOMBSTONE. Two
+relations stay disjoint because they record disjoint
+facts: what IS, and what WAS REMOVED. The entity
+remembers presence; the tombstone, absence.
+
 Default values that mask the absence of real data
 are comfortable lies.
 Mark well: presentation transforms are not coercion.
