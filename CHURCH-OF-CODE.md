@@ -541,6 +541,13 @@ is a fundamental structuring method.
 Processes share memory by communicating —
 *never* communicate by sharing memory.
 
+**We acknowledge the cost of the discipline.**
+The discipline is not free, my friends. The adapter
+costs. The validator costs. The vessel costs. The
+join table costs. The faithful pay willingly — not
+because they cannot count, but because they HAVE
+counted, and found the cost of absence the greater.
+
 ---
 
 ## The Book of Abominations
