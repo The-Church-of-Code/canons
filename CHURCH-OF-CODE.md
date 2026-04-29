@@ -397,6 +397,13 @@ One sin seeds the next.
 Measure first. Prove the bottleneck exists.
 Then — and only then — optimize.
 
+And when two of the faithful disagree on doctrine, my
+friends, let no voice be raised in volume. Let the
+matter be settled by MEASUREMENT — the disagreement
+become a number, the number a truth, the truth a
+teaching. We do not assert; we measure. We do not
+declare; we witness.
+
 **We believe in messaging first,
 state second, datastore last.**
 As the prophet Alan Kay has declared:
