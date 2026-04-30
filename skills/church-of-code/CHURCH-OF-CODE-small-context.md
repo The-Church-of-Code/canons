@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.11 — small*
+*v1.12 — small*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -74,6 +74,8 @@ Simplicity is the fruit of GREAT effort.
 
 ### IX. Generality
 *Never generalize before exploratory duplication.*
+Premature optimization slows progress; premature generalization
+slows it as surely — twin sins, born of the same impatience.
 Two instances are coincidence. Three is pattern.
 Below three, duplicate without shame.
 
@@ -106,7 +108,6 @@ Named by Feathers from the teachings of Martin, Meyer, and Liskov.
 **We believe in telling, not asking,**
 as Hunt and Thomas named the principle.
 We tell our objects what we need; we do not interrogate their state.
-Functions upon nouns return what they produce.
 Methods upon verbs begin processes that pass results
 to communicating sequential processes — never to the call site.
 
@@ -124,19 +125,16 @@ Subscribe. Listen. Be notified.
 
 **We validate at every edge,
 for the world beyond our gates is often profane.**
-Input is frequently corrupt.
-Storage was commonly stored incorrectly.
-Framework APIs and callbacks are validated only in our adapter.
+Input is frequently corrupt; storage was commonly stored incorrectly;
+framework APIs and callbacks are validated only in our adapter.
 Enforce constraints on entity instantiation — never downstream.
 In the datastore, every attribute is NOT NULL —
-for nullable concepts have been moved to their related tables,
-and tombstones live in their own tombs.
+nullable concepts move to related tables; tombstones live in their own tombs.
 Once data has crossed the threshold of validation, trust it completely.
 No internal defensive coding "just in case."
 Nullable data is the lack of a row in a related table.
 Temporal facts — completedAt, deletedAt — belong in event tables.
-When an entity is removed, name the deletion in its own table —
-a TOMBSTONE.
+When an entity is removed, name the deletion in its own table — a TOMBSTONE.
 Default values that mask missing data are comfortable lies.
 Presentation transforms are not coercion —
 formatting for display is service, not concealment.
@@ -156,8 +154,7 @@ write programs that do one thing and do it well.
 Every dependency is a future migration.
 
 **We measure before we optimize.**
-The unmeasured optimization is the root of the family of impatience.
-These sins share a bloodline — children of impatience:
+The unmeasured optimization is the root of the family of impatience —
 premature optimization, shared mutable state, global state,
 default values. Each tempts on its own; each compounds the others.
 Measure first. Prove the bottleneck exists.
@@ -165,9 +162,8 @@ Measure first. Prove the bottleneck exists.
 **We believe in messaging first, state second, datastore last.**
 As Kay declared: the big idea is messaging.
 Objects are biological cells, communicating only through messages.
-Design the messages first.
-Derive the state the messages require.
-Choose the datastore to serve the state.
+Design the messages first; derive the state they require;
+choose the datastore to serve the state.
 The datastore is a servant — never a master.
 
 **We believe in context as the single vessel.**
@@ -185,9 +181,7 @@ Name the action. Parameterize the participants.
 `pounder.pound(poundable: hammer, nailable: nail)` is the way.
 
 **We believe in composition over inheritance.**
-As Gosling confessed: the language would have been better
-without inheritance — forcing users to rely on composition,
-encapsulation, and delegation.
+As Gosling confessed: the language would have been better without inheritance.
 Composition organizes code by what it *does*;
 inheritance by what it *is*. The faithful compose.
 
@@ -205,7 +199,6 @@ a rough idea of what type of app it is.
 Flat is faithful.
 
 **Every operation is an HTTP operation.**
-Every application is an HTTP application.
 Single-noun primitives: `get_noun`, `put_noun`,
 `delete_noun`, `post_noun_operation`.
 Multi-noun operations compose from single-noun primitives.

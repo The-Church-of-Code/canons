@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.11 — medium*
+*v1.12 — medium*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -67,8 +67,7 @@ There is no grace without it. There is no rest without it.
 
 A breach is a covenant broken with everyone who trusted us
 with their data, their privacy, their peace of mind.
-A breach is theft of trust, irreversible —
-the data, once leaked, cannot be unleaked.
+The data, once leaked, cannot be unleaked.
 
 ### III. Uniformity
 
@@ -78,11 +77,9 @@ As Confucius has taught us in the Rectification of Names:
 if names be not correct, affairs cannot be carried on to success.
 Software development is the discipline of readability
 through precise vocabulary.
-Name processors with *-er*: a `painter` paints, a `validator` validates.
-Name contracts with *-able*: a board is `paintable`, an input is `validatable`.
+Name processors with *-er*; name contracts with *-able*.
 The *-er* acts; the *-able* submits to the action.
-Name what is opaque; leave the self-disclosing alone —
-see the Abomination on Magical Values for the full teaching.
+Name what is opaque; leave the self-disclosing alone.
 
 ### IV. Logic
 
@@ -141,8 +138,8 @@ it is the fruit of GREAT effort.
 
 *Never generalize before exploratory duplication.*
 
-Premature generalization slows progress
-as surely as premature optimization —
+Premature optimization slows progress.
+Premature generalization slows it as surely —
 twin sins, born of the same impatience.
 Two instances are coincidence. Three is pattern.
 Below three, duplicate without shame;
@@ -165,8 +162,7 @@ application layer.
 *True when the above eleven are honored.
 Chaotic when pursued prematurely.*
 
-Efficiency emerges from humility —
-from clarity, from simplicity,
+Efficiency emerges from humility — from clarity, from simplicity,
 from code that can be reasoned about.
 Efficiency is not a goal — it is a consequence.
 
@@ -202,14 +198,12 @@ named by Michael Feathers from the teachings of the prophets:
   depend on abstractions, not concretions
 
 **We believe in telling, not asking,**
-as the great teachers Andy Hunt and Dave Thomas
-named the principle.
+as Andy Hunt and Dave Thomas named the principle.
 We tell our objects what we need.
 We do not interrogate their state.
 Through this discipline we achieve polymorphism —
 the eleventh commandment made manifest.
-Mark the distinction:
-functions upon nouns return what they produce.
+Functions upon nouns return what they produce.
 Methods upon verbs begin asynchronous processes
 that pass results to communicating sequential processes —
 never returning to the call site.
@@ -220,7 +214,7 @@ Codd revealed that relationships occupy their own relations.
 We add the moment of union — for relationships have time.
 Stored in their own tables, holding only the identities
 of the joined and the moment of their union.
-If a relationship demands more than this…
+If a relationship demands more than this,
 it is not a relationship — it is an entity wearing a false name.
 
 **We believe in being informed of state changes,**
@@ -228,41 +222,32 @@ not in the anxious polling of the faithless.
 Gamma, Helm, Johnson, and Vlissides
 codified this as the Observer pattern.
 Subscribe. Listen. Be notified.
-The devout do not pace the hallway.
-The devout trust the bell.
+The devout do not pace the hallway. The devout trust the bell.
 
 **We validate at every edge,
 for the world beyond our gates is often profane:**
 
 - Input: the voice of the uninstructed is frequently corrupt
-- Storage: what was written was commonly stored incorrectly. Beware!
-- Framework APIs and delegate callbacks:
-  other people's dharma, to be validated in our adapter
+- Storage: what was written was commonly stored incorrectly
+- Framework APIs and delegate callbacks: other people's dharma,
+  to be validated in our adapter
 
 Enforce constraints on entity instantiation — never downstream.
 In the datastore, every attribute is NOT NULL —
-for nullable concepts have been moved to their related tables,
-and tombstones live in their own tombs.
+nullable concepts move to related tables; tombstones live in their own tombs.
 
-Once data has crossed the threshold of validation,
-trust it completely.
+Once data has crossed the threshold of validation, trust it completely.
 No internal defensive coding "just in case."
-To distrust validated data is to lack faith in your peers.
 
-Nullable data is ideally represented
-as the lack of a row in a related table.
-Temporal facts — completedAt, deletedAt —
-belong in event tables,
+Nullable data is the lack of a row in a related table.
+Temporal facts — completedAt, deletedAt — belong in event tables,
 for the absence of a row IS the absence of the event.
-When an entity is removed, name the deletion in its own
-table — a TOMBSTONE. The entity remembers presence;
-the tombstone, absence.
+When an entity is removed, name the deletion in its own table —
+a TOMBSTONE. The entity remembers presence; the tombstone, absence.
 
-Default values that mask the absence of real data
-are comfortable lies.
-Presentation transforms are not coercion.
-Formatting for display is an act of service,
-not an act of concealment.
+Default values that mask absence are comfortable lies.
+Presentation transforms are not coercion —
+formatting for display is service, not concealment.
 When a value is truly absent, model that absence
 at the call site — not in the helper.
 
@@ -271,9 +256,8 @@ Degrade visibly rather than corrupt silently.
 Never catch an error you cannot meaningfully handle —
 to swallow an exception is excommunicable!
 
-As the great teacher Bertrand Meyer has taught us
-in Design by Contract — a function declares
-what it requires and what it guarantees.
+As Bertrand Meyer has taught us in Design by Contract:
+a function declares what it requires and what it guarantees.
 When those terms are violated, the failure
 is not an accident to recover from —
 it is a breach of covenant to be proclaimed.
@@ -290,10 +274,9 @@ write programs that do one thing and do it well.
 Every dependency is a future migration.
 
 **We measure before we optimize.**
-The unmeasured optimization is the root of the family of impatience.
-These sins share a bloodline. They are children of impatience —
+The unmeasured optimization is the root of the family of impatience —
 premature optimization, shared mutable state, global state,
-default values. Each tempts on its own. Each compounds the others
+default values. Each tempts on its own; each compounds the others
 when present together. Where you find one, look for its kin.
 Measure first. Prove the bottleneck exists.
 Then — and only then — optimize.
@@ -302,36 +285,31 @@ Then — and only then — optimize.
 state second, datastore last.**
 As the prophet Alan Kay has declared:
 the big idea is messaging.
-Objects are biological cells, communicating
-only through messages.
-The key in making great and growable systems
-is to design how modules communicate,
-not what their internal properties should be.
+Objects are biological cells, communicating only through messages.
+The key to great and growable systems is to design
+how modules communicate, not what their internal properties should be.
 Design the messages first.
 Derive the state the messages require.
 Choose the datastore to serve the state.
 The datastore is a servant — never a master.
 
 **We believe in context as the single vessel.**
-Processing begins with a request.
-Each step uses and perhaps enriches the context.
+Processing begins with a request; each step enriches the context.
 Context is the only argument passed to methods —
 serializable, loggable, complete by covenant.
-Context is not a god-object — it is the baton in a relay.
+Context is the baton in a relay; attributes immutable.
 The context flows; the steps serve.
-The attributes immutable even as the vessel itself is enriched.
 Objects carry state, not arguments.
 
 The vessel is a bag whose sole responsibility is to BE the bag.
 Two reads see one truth. Three reads see one truth.
-Not for speed — for ATOMICITY. Speed is the consequence;
-atomicity is the goal.
+Not for speed — for ATOMICITY.
 
 **We believe in process first, noun second.**
 As the physicist David Bohm taught in his rheomode:
 'It is raining.' Where is the 'It'?
 More accurate: 'Rain is going on.'
-Rheocode takes its name from this insight.
+Rheocode takes its very name from this insight.
 Name the action. Parameterize the participants.
 `pounder.pound(poundable: hammer, nailable: nail)` is the way —
 the process owns everything, the nouns are participants,
@@ -377,7 +355,7 @@ Processes share memory by communicating —
 *never* communicate by sharing memory.
 
 **We acknowledge the cost of the discipline.**
-The discipline is not free, my friends. The adapter costs.
+The discipline is not free. The adapter costs.
 The validator costs. The vessel costs. The join table costs.
 The faithful pay willingly — not because they cannot count,
 but because they HAVE counted, and found the cost of absence
@@ -394,17 +372,14 @@ The first sin is the root from which the others grow.*
 
 *"But it needs to be fast!"*
 
-That, my friends, is the serpent talking.
-This is the Original Sin.
+That, my friends, is the serpent talking. This is the Original Sin.
 As the prophet Knuth has taught us in 1974:
 premature optimization is the root of all evil.
-But Knuth did not say *forget* optimization. He said forget
-*small* efficiencies ninety-seven percent of the time.
-The other three — the CRITICAL three — is real.
-Measure to find it, measure to PROVE it,
+Knuth did not say *forget* optimization. He said forget *small*
+efficiencies ninety-seven percent of the time. The CRITICAL three
+is real. Measure to find it, measure to PROVE it,
 then optimize without apology.
-The sin is not optimization; the sin is optimization
-without measurement.
+The sin is not optimization; it is optimization without measurement.
 Efficiency is the twelfth commandment, yet its corruption
 is the *first* abomination.
 
@@ -413,14 +388,12 @@ is the *first* abomination.
 *"But we'll need this everywhere!"*
 
 We'll need it. *Everywhere.* Will we?
-Premature generalization is the twin of premature optimization —
+Premature generalization is the twin of premature optimization,
 born of the same impatience.
 Two instances are coincidence. Three is pattern.
-Below three, duplicate without shame.
-The premature abstraction takes its shape from too few examples,
-and the next instance — when it arrives — does not fit.
-So you add a flag. Then a special case. The abstraction
-meant to unify has become a switch statement wearing a mask.
+The premature abstraction takes its shape from too few examples;
+the next instance does not fit, and the abstraction meant to unify
+becomes a switch statement wearing a mask.
 Wait for the third instance. Let the pattern speak.
 
 ### On the Sin of Shared Mutable State
@@ -460,11 +433,11 @@ it was his billion-dollar mistake.
 
 Beware these sinful practices!
 
-- a `nullable` column that is sometimes set, often null,
+- a `nullable` column sometimes set, often null,
   with conditional logic everywhere asking "if it exists"
 - a sentinel value standing in for absence
-- the attribute that is nil for only a subset of entities
-  but lives in the entity table all the same
+- the attribute nil for only a subset of entities
+  but living in the entity table all the same
 - the temporal fact recorded as a nullable column
   rather than a row in an event table
 
@@ -513,7 +486,7 @@ Validate at the gates. Trust within the walls.
 A foreign key is never just a reference. It is a denormalization
 that fuses what should be independent — identity married to
 proximity, two relations welded where one and a join would do.
-As the prophet Edgar F. Codd has established:
+As Edgar F. Codd has established:
 entities and relationships occupy separate relations.
 Declare relationships in join tables.
 
@@ -521,7 +494,7 @@ Declare relationships in join tables.
 
 *"But it captures the IS-A relationship!"*
 
-IS-A. The oldest trap in the book.
+IS-A. *IS-A.* The oldest trap in the book, and still it catches us.
 As Barbara Liskov has established:
 a subtype must honor every promise the parent type has made.
 Inheritance binds by lineage; composition binds by capability.
@@ -534,8 +507,7 @@ When an ancestor changes, every descendant trembles.
 To call a third-party service without an adapter boundary
 is to weld your hull to the dock.
 When the dock is demolished, your ship sinks with it.
-As Mornini has taught us:
-every dependency is a bet
+As Mornini has taught us: every dependency is a bet
 that someone else's trajectory will match yours.
 Every external dependency gets an adapter. No exceptions.
 
@@ -555,18 +527,15 @@ Halting IS graceful when the alternative is silent corruption.
 
 *"But I want to handle all the errors!"*
 
-The greedy catch is a single `try` thrown around five operations,
-or seven, or ten — and a single `catch` that pretends to handle
-them all.
+The greedy catch wraps five operations, or seven, or ten —
+and pretends to handle them all.
 When the catch fires, you cannot name which call failed.
 You know only that *something* failed — and something is not enough.
-As Bertrand Meyer has taught us in Design by Contract:
-each call carries its own preconditions and postconditions.
-Five calls speak five covenants. The greedy catch hears them
+As Bertrand Meyer has taught us: each call carries its own covenant.
+Five calls speak five covenants; the greedy catch hears them
 as one indistinguishable sound.
 
-One `try`. One call. One error you can name and meaningfully
-handle. The rest must surface.
+One `try`. One call. One error you can name and meaningfully handle.
 
 ### On the Sin of Asking, Not Telling
 
@@ -629,8 +598,7 @@ hence — can rebuild the theory from the code alone.
 *"But it's elegant!"*
 
 Elegant. You think it's *elegant*.
-As Kernighan has taught us — with Plauger
-in *The Elements of Programming Style*:
+As Kernighan has taught us with Plauger in *The Elements of Programming Style*:
 debugging is twice as hard as writing the code in the first place —
 if you write as cleverly as possible,
 you are, by definition, not smart enough to debug it.
@@ -641,21 +609,16 @@ Elegance is not concision — elegance is clarity under pressure.
 *"But everyone knows what 200 means!"*
 
 Everyone knows… until they don't.
-As Martin Fowler has cataloged: replace magic literal
-with named constant.
-As Peter Naur has taught us: an unnamed constant is a piece
-of the theory left unspoken, a gap in the narrative
-the next reader must fill.
+As Martin Fowler has cataloged: replace magic literal with named constant.
+As Naur has taught us: an unnamed constant is a piece
+of the theory left unspoken, a gap the next reader must fill.
 
-This distinction is sacred:
-the literal that speaks for itself needs no name;
+The literal that speaks for itself needs no name;
 the literal that is opaque must be given one.
-
 Self-disclosing literals already speak —
 the empty `''`, `[]`, `{}`; the domain enum; the HTTP verb;
 the structural count (`length === 0`); the shape literal.
-The sin lies in the OPAQUE —
-the number whose units it will not say
+The sin lies in the OPAQUE — the number whose units it will not say
 (`28800` seconds, sizing constants like `16` or `28`);
 the binary-protocol fragment.
 Where the literal cannot be read at face value, speak its name.
@@ -696,18 +659,15 @@ Commit frequently. `git commit --amend --no-edit` is a mercy
 granted to the diligent and rewarded by git reflog.
 
 What has been pushed has been witnessed.
-Force-pushing is bearing false witness —
-reserved for the catastrophic mistake (secret leaked,
-malicious commit) and announced loudly when invoked.
+Force-pushing is bearing false witness — reserved for the catastrophic
+mistake (secret leaked, malicious commit) and announced loudly.
 
-ABC — always be committing!
+ABC — always be committing.
 What isn't committed cannot be restored once forgotten.
 
-Locally, commit before you build —
-the artifact is the product of state, and state must be saved.
+Locally, commit before you build — state must be saved.
 Before you push, ensure every commit on master builds, functions,
 and passes tests; rebase and amend until that holds.
-
 A build from uncommitted state cannot be traced, reproduced,
 verified, or trusted.
 
@@ -720,8 +680,7 @@ Commit in tiny, semantically contiguous bits:
 - Never move/rename and change content in the same commit
 - Rarely mention file names, paths, or function names
 
-The history shall be linear.
-Rebase, then fast forward. Never merge.
+The history shall be linear. Rebase, then fast forward. Never merge.
 A merge commit is a knot in the narrative.
 
 ### The Office of Time
@@ -746,18 +705,15 @@ Authentication resolves the identity. Authorization resolves the roles.
 Deserialization resolves the body. The request UUID resolves the trace.
 No field is written twice. No step revisits another's work.
 
-Observability is not bolted on — it is carried in the vessel from
-the start. Structured logging emerges naturally when the context is
-whole. Tracing is context propagation across service boundaries.
-Metrics are context aggregation. The faithful do not instrument
-after the fact — they ship the instrument.
+Observability is not bolted on — it is carried in the vessel
+from the start. The faithful do not instrument after the fact —
+they ship the instrument.
 
 ### The Office of Verification
 
 In the spirit of Beck's TDD — and against his preference
 for unit tests — we test at the highest level possible.
-This grants the faithful maximum freedom
-to refactor without the soul-crushing pain of test rewriting.
+This grants the faithful maximum freedom to refactor.
 
 Tests assert behavior, not implementation —
 for implementation changes, but the covenant
@@ -766,7 +722,7 @@ we keep with our users does not.
 Each test is an isolated world.
 No shared state between tests.
 
-A test that cannot fail is not a test. It is a comfort object.
+A test that cannot fail is not a test — it is a comfort object.
 A test that fails intermittently is worse than no test —
 it is a *false prophet*.
 
@@ -778,7 +734,6 @@ for the user's time is sacred and their patience is not infinite.
 
 K&R chose Hello, World as the first program for a reason:
 the simplest thing that works is the right place to begin.
-Let the first experience be success.
 
 The first interaction must succeed.
 No configuration before first use.
@@ -803,8 +758,8 @@ The comment that explains "what" points at code that should
 have been clearer. Fix the code; delete the comment.
 
 Documentation comments at module and contract boundaries
-are different in kind — they are the contract itself, not
-commentary on it.
+are different in kind — they are the contract itself,
+not commentary on it.
 
 We abide by our strictures
 rather than annotate our way around them.
@@ -848,38 +803,38 @@ from the teachings of the prophets who came before.*
 
 - The Principles of OOD — Robert C. Martin's original SOLID treatise
 - Solid Relevance — the same prophet, twenty years hence
-- The Early History of Smalltalk, The Big Idea Is Messaging, The Meaning of OOP — Alan Kay on objects and messages (1971)
+- The Early History of Smalltalk, The Big Idea Is Messaging, The Meaning of OOP — Alan Kay (1971)
 - The Humble Programmer — Edsger Dijkstra's Turing Award lecture (1972)
 - A Relational Model of Data — Edgar F. Codd's revelation (1970)
 - A Research UNIX Reader — Doug McIlroy on the Unix philosophy
-- The Art of Unix Programming — Eric S. Raymond on transparency and Unix design (2003)
-- Structured Programming with go to Statements — Donald Knuth on optimization (1974)
-- Communicating Sequential Processes — Tony Hoare's foundational paper (1978)
-- Null References: The Billion Dollar Mistake — Tony Hoare's confession (2009)
-- The C Programming Language — Brian Kernighan and Dennis Ritchie (K&R) on simplicity (1978)
-- The Elements of Programming Style — Brian Kernighan and P.J. Plauger on clarity over cleverness (1974, 2nd ed. 1978)
-- Time, Clocks, and the Ordering of Events in a Distributed System — Leslie Lamport on causality (1978)
-- Programming as Theory Building — Peter Naur on understanding over documentation (1985)
-- No Silver Bullet — Fred Brooks on essence and accident (1986)
-- Data Abstraction and Hierarchy and A Behavioral Notion of Subtyping — Barbara Liskov on substitution
-- Object-Oriented Software Construction and Applying Design by Contract — Bertrand Meyer on openness and contracts
+- The Art of Unix Programming — Eric S. Raymond (2003)
+- Structured Programming with go to Statements — Donald Knuth (1974)
+- Communicating Sequential Processes — Tony Hoare (1978)
+- Null References: The Billion Dollar Mistake — Tony Hoare (2009)
+- The C Programming Language — Kernighan and Ritchie (K&R) (1978)
+- The Elements of Programming Style — Kernighan and Plauger (1974)
+- Time, Clocks, and the Ordering of Events — Leslie Lamport (1978)
+- Programming as Theory Building — Peter Naur (1985)
+- No Silver Bullet — Fred Brooks (1986)
+- Data Abstraction and Hierarchy; A Behavioral Notion of Subtyping — Barbara Liskov
+- Object-Oriented Software Construction; Applying Design by Contract — Bertrand Meyer
 - Design Patterns — Gamma, Helm, Johnson, and Vlissides (1994)
-- The Analects — Confucius on the Rectification of Names (~500 BCE)
-- Lettres Provinciales — Blaise Pascal on brevity (1657)
-- Tractatus Logico-Philosophicus — Ludwig Wittgenstein on language and world (1921)
-- Wholeness and the Implicate Order — David Bohm on the rheomode (1980)
-- The Transaction Concept — Jim Gray on atomicity (1981)
+- The Analects — Confucius (~500 BCE)
+- Lettres Provinciales — Blaise Pascal (1657)
+- Tractatus Logico-Philosophicus — Wittgenstein (1921)
+- Wholeness and the Implicate Order — David Bohm (1980)
+- The Transaction Concept — Jim Gray (1981)
 - Tell, Don't Ask — Andy Hunt and Dave Thomas (1998)
-- Replace Magic Literal — Martin Fowler's refactoring catalog
-- Representational State Transfer — Roy Fielding's dissertation, Chapter 5 (2000)
-- James Gosling on Java — the creator's regret about inheritance (2001)
+- Replace Magic Literal — Martin Fowler
+- Representational State Transfer — Roy Fielding (2000)
+- James Gosling on Java — on inheritance regret (2001)
 - Test-Driven Development: By Example — Kent Beck (2002)
-- Making Reliable Distributed Systems in the Presence of Software Errors — Joe Armstrong on letting it crash (2003)
-- Working Effectively with Legacy Code — Michael Feathers, who coined the SOLID acronym (2004)
+- Making Reliable Distributed Systems — Joe Armstrong on letting it crash (2003)
+- Working Effectively with Legacy Code — Michael Feathers (2004)
 - Merb: no code is faster than no code — Ezra Zygmuntowicz
-- Simple Made Easy, The Value of Values, and Are We There Yet? — Rich Hickey's trilogy on immutability
-- Rheocode Software Development — the synthesis, named for Bohm's rheomode — Tom Mornini and Ra'Shaun Stovall (2016)
-- Computer latency: 1977-2017 — Dan Luu on latency
+- Simple Made Easy; The Value of Values; Are We There Yet? — Rich Hickey
+- Rheocode Software Development — Mornini and Stovall (2016)
+- Computer latency: 1977-2017 — Dan Luu
 
 ---
 
