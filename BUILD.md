@@ -81,8 +81,7 @@ the Articles carry the belief.
 - **Premature Optimization**: the family framing —
   premature optimization, shared mutable state, global state,
   default values, and unmeasured caches are children of impatience,
-  not links in a causal chain. Also the structural inversion note
-  (XII is the least virtue, its corruption is the first sin).
+  not links in a causal chain.
   Hoisted into: **"We measure before we optimize"**.
 - **Null**: row-absence data modeling — nullable data
   represented as absence of a row in a related table.
