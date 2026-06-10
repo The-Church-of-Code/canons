@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.15 — small*
+*v1.16 — small*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -31,7 +31,8 @@ The repentant shall be welcomed back. The obstinate cast out.
 ## The Twelve Commandments
 
 *In order of importance, from most to least.
-Perfection is the thirteenth — the asymptote.*
+Perfection is the thirteenth — the asymptote
+the twelve drive toward.*
 
 ### I. Reliability
 
@@ -78,8 +79,9 @@ free of time.
 
 *PUT, GET, DELETE — not INSERT, UPDATE, DELETE.*
 
-HTTP verbs are the true verbs. An operation that can be
-repeated without consequence can be trusted.
+PUT overwrites; INSERT appends. DELETE removes; UPDATE
+mutates. An operation that can be repeated without
+consequence can be trusted.
 
 ### VIII. Simplicity
 
@@ -93,7 +95,7 @@ Simplicity is the fruit of GREAT effort.
 
 Two instances are coincidence. Three is pattern. Below three,
 duplicate without shame. Once the better way is found, replace
-every similar site — never live beside them.
+every similar site — never rest beside them.
 One codebase, one voice.
 
 ### X. Atomicity
@@ -101,12 +103,12 @@ One codebase, one voice.
 *Design so you rarely need it.*
 
 When genuinely required, embrace it. Wrap the indivisible in
-the platform's transactional primitive; never simulate at the
-application layer.
+the platform's primitive; never simulate at the application
+layer.
 
 ### XI. Efficiency
 
-*True when the above eleven are honored.
+*True when the above ten are honored.
 Chaotic when pursued prematurely.*
 
 It is not a goal but a consequence.
@@ -114,8 +116,7 @@ It is not a goal but a consequence.
 ### XII. Performance
 
 Every wasted millisecond is a small death.
-Humans perceive cause/effect latency down to low single-digit
-milliseconds.
+Humans perceive latency down to low single-digit milliseconds.
 *No code is faster than no code.*
 
 ---
@@ -127,14 +128,13 @@ Single Responsibility (Martin), Open/Closed (Meyer), Liskov
 Substitution (Liskov), Interface Segregation (Martin),
 Dependency Inversion (Martin). The five pillars upon which
 righteous architecture is raised, named by Michael Feathers
-from the prophets.
+from the teachings of the prophets.
 
 **We believe in telling, not asking.**
 Tell objects what we need; do not interrogate state.
 Functions upon nouns return what they produce.
-Methods upon verbs begin asynchronous processes that pass
-results to communicating sequential processes —
-never returning to the call site.
+Methods upon verbs begin processes that pass results
+onward — never returning to the call site.
 
 **We believe that relationships between entities
 are sacred covenants.**
@@ -161,16 +161,35 @@ Default values that mask absent data are comfortable lies.
 Presentation transforms are service, not coercion.
 Absence is modeled at the call site, not the helper.
 
+When inheriting schema, apply doctrine with measured judgment.
+Preserve what cannot be safely changed; improve what can.
+
 Once data has crossed validation, trust it completely.
 To distrust validated data is to lack faith in your peers.
+
+**We guard the threshold of trust.**
+No secret in logs, error messages, or configuration defaults.
+No query built from user input without parameterization —
+injection is not a bug; it is a sin.
+Every service account runs with minimum privilege.
+Secrets are supplied at deployment time, never discovered
+in source code. If it reads secrets, prove that it needs them.
 
 **We handle failure with grace.**
 Degrade visibly rather than corrupt silently.
 Never catch what you cannot meaningfully handle —
 to swallow an exception is excommunicable.
 
+Every resource that holds a handle is guaranteed release —
+platform lifetimes or acquire, use, release.
+Every I/O call has a timeout; no operation waits forever.
+Retries only for transient errors: exponential backoff with
+jitter, capped, never infinite.
+
 Distinguish expected failures (network timeout) from bugs
-(impossible state — let it crash).
+(impossible state — let it crash, within its supervision
+boundary, never cascading across request, tenant, or
+shared-resource boundaries).
 Enrich errors at each boundary layer until the failure
 surfaces with its full story.
 
@@ -184,6 +203,8 @@ impatience: premature optimization, shared mutable state,
 global state, default values, and unmeasured caches.
 Where you find one, look for its kin.
 Doctrine disputes are settled by MEASUREMENT.
+We do not agree that a thing is faster, cleaner, or better
+without proof. Measure or be silent.
 
 **We derive from the ledger.**
 Where an authoritative event ledger exists, derived caches
@@ -212,8 +233,6 @@ the process owns, the nouns are participants.
 **We believe in composition over inheritance.**
 Composition organizes code by what it *does*;
 inheritance by what it *is*.
-Composition gives a function its collaborators;
-inheritance gives an ancestor its heirs.
 Subclassing is inheritance, however much behavior you mix in —
 favored only where a platform demands the hierarchy.
 The faithful compose.
@@ -241,11 +260,14 @@ HTTP verb semantics are universal:
 Multi-noun: `post_operation`.
 
 **We believe in communicating sequential processes.**
-As Tony Hoare taught in his 1978 paper: asynchronous composition
-of communicating sequential processes is a fundamental
-structuring method.
-Processes share memory by communicating —
+As Tony Hoare taught in his 1978 paper:
+processes share memory by communicating —
 *never* communicate by sharing memory.
+
+**We execute the request, not the request plus improvements.**
+Do not refactor what was not asked, nor reformat files outside
+the requested change. The diff must match the story —
+nothing more, nothing less.
 
 **We acknowledge the cost of the discipline.**
 The adapter costs. The validator costs. The vessel costs.
@@ -266,6 +288,8 @@ violation looks like in code.*
 
 **On Premature Generalization** — *"But we'll need this everywhere!"*
 
+**On Unbidden Helper Code** — *"But this will make your life easier!"*
+
 **On Shared Mutable State** — *"But shared memory is faster!"*
 
 **On Global State** — *"But everything needs access to it!"*
@@ -283,6 +307,8 @@ violation looks like in code.*
 **On Coupling** — *"But the library does everything we need!"*
 
 **On Swallowed Failures** — *"But the user shouldn't see errors!"*
+
+**On Test Weakening** — *"But it was just one assertion…"*
 
 **On the Greedy Catch** — *"But I want to handle all the errors!"*
 
@@ -304,6 +330,8 @@ violation looks like in code.*
 **On Deep Nesting** — *"But I need to organize by category!"*
 
 **On Foreign Tongues** — *"But that's what the library calls it!"*
+
+**On Resource Abandonment** — *"But the runtime will clean it up!"*
 
 ---
 
@@ -327,9 +355,9 @@ catastrophe (secret leaked, malicious commit), announced
 loudly when invoked.
 
 ABC — always be committing!
-Locally, commit before you build — the artifact is the product
-of state. Before you push, ensure every commit on master builds,
-functions, and passes tests; rebase and amend until that holds.
+Locally, commit before you build. Before you push, ensure
+every commit on master builds, functions, and passes tests;
+rebase and amend until that holds.
 
 A build from uncommitted state cannot be traced, reproduced,
 verified, or trusted.
@@ -340,12 +368,11 @@ Commit in tiny, semantically contiguous bits:
 - Each message: a single line, approximately fifty characters,
   complete: "When applied, this commit will ___"
 - If a commit needs a subject and body, it is too large —
-  use `git commit -p`. Trailers are not bodies.
+  use `git commit -p`
 - Never move or rename and change content in the same commit
 - Rarely mention file names, paths, or function names
 
 History shall be linear. Rebase, then fast forward. Never merge.
-A merge commit is a knot in the narrative.
 
 ### The Office of Time
 
@@ -353,16 +380,18 @@ Persist timestamps in RFC-3339, zulu, fullest sub-second
 resolution. Not negotiable.
 
 Render to local time for display only. Never use localtime
-internally — it is the road to ambiguity, and ambiguity is
-the road to bugs that manifest in production only when you
-are asleep.
+internally — it is the road to ambiguity.
 
 ### The Office of the Context
 
 Each field of the context is set exactly once, in exactly
 one place. Authentication resolves identity. Authorization
-resolves roles. Deserialization resolves body. Request UUID
-resolves trace. No step revisits another's work.
+resolves roles. Deserialization resolves body. Request
+identity resolves trace. No step revisits another's work.
+
+Pure functions — parsers, formatters, mathematical
+operations — receive only their inputs. When a step calls
+a utility, it passes what the utility needs, not the vessel.
 
 Observability is carried in the vessel from the start —
 the faithful ship the instrument.
@@ -370,8 +399,7 @@ the faithful ship the instrument.
 ### The Office of Verification
 
 Test at the highest level possible — input, transform, output.
-Assert behavior, not implementation, for implementation changes
-but the covenant we keep with our users does not.
+Assert behavior, not implementation.
 
 Each test is an isolated world. A test that leans on another
 lies about what it proves.
@@ -379,11 +407,22 @@ lies about what it proves.
 A test that cannot fail is a comfort object.
 A test that fails intermittently is a *false prophet*.
 
+### The Office of Structured Observability
+
+Logs are data — machine-readable, queryable, complete.
+Every log statement carries: RFC-3339 zulu timestamp from
+the context; the platform's standard level, never invented;
+a message naming what happened, not how; structured fields —
+request identity, operation, latency, error.
+
+Never concatenate values into the message. Never log secrets,
+PII, or credential material. The request identity travels
+across services.
+
 ### The Office of the Interface
 
 Intuitive, accessible, beautiful. No configuration before
-first use. Defaults that work, exits visible — the escape
-hatch is part of the welcome.
+first use. Defaults that work, exits visible.
 
 Accessibility is the precondition of an interface, not a
 feature. Color contrast, keyboard navigation, screen-reader
@@ -407,6 +446,9 @@ them.
 ---
 
 ## The Unwritten Scrolls
+
+*Principles not yet fully articulated, acknowledged here so
+that their absence is intentional, not ignorant.*
 
 The temporal dimension of data modeling — migrations, schema
 evolution, versioning, and the management of change over time —

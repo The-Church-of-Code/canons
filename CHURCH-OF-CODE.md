@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.15 — full*
+*v1.16 — full*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -181,7 +181,7 @@ your platform provides — never simulate atomicity at the application layer.
 
 ### XI. Efficiency
 
-*True when the above eleven are honored.
+*True when the above ten are honored.
 Chaotic when pursued prematurely.*
 
 Efficiency emerges from humility — from clarity, from simplicity,
@@ -229,7 +229,7 @@ We tell our objects what we need.
 We do not interrogate their state.
 We do not demand they prove themselves before we allow them to serve.
 Through this discipline we achieve polymorphism — and through it,
-generality, the eleventh commandment made manifest.
+generality, the ninth commandment made manifest.
 Functions upon nouns return what they produce.
 Methods upon verbs begin asynchronous processes that pass results
 to communicating sequential processes —
@@ -283,8 +283,44 @@ When a value is truly absent, my friends, model that absence
 at the call site — not in the helper.
 Helpers shall not pretend absence.
 
+When inheriting schema, apply doctrine with measured judgment.
+Renormalization is a refactoring; measure its cost
+before mandating it. Preserve what cannot be safely changed;
+improve what can.
+
+**We guard the threshold of trust.**
+Secrets — API keys, credentials, encryption material,
+personally identifiable data — must be handled with
+discipline that code cannot violate.
+No secret shall be written to logs, error messages,
+or configuration defaults. No query shall be constructed
+from user input without parameterization — injection is
+not a category of bugs; it is a category of sins.
+Every service account shall operate with the minimum
+privilege required for its function.
+
+When the system must know a secret, it is supplied at
+deployment time — never discovered in source code,
+never accessible to a code path that does not require it.
+Secrets enter through the vessel at initialization,
+immutable for the life of the request.
+If it reads secrets, prove that it needs them.
+
 **We handle failure with grace.**
 Degrade visibly rather than corrupt silently.
+
+Every resource that holds a handle — a file descriptor,
+a network socket, a database connection, a thread —
+must have a place where it is guaranteed to be released.
+In languages with resource-scoped lifetimes — RAII,
+try-with-resources, async context managers, defer —
+use them without exception. In languages without,
+wrap the lifecycle: acquire, use, release — with release
+in a finally block or equivalent guard.
+
+Every I/O call — network, disk, database query —
+shall have a timeout. The timeout bounds the worst case;
+no operation shall wait forever.
 
 Never catch an error you cannot meaningfully handle —
 to swallow an exception is excommunicable!
@@ -295,8 +331,16 @@ When those terms are violated, the failure is not an accident
 to recover from — it is a breach of covenant to be proclaimed.
 
 Distinguish expected failures from bugs:
-a network timeout is expected and handled;
-an impossible state is a bug… and must crash.
+a network timeout is expected and handled —
+and the resource is released;
+an impossible state is a bug… and must crash —
+within its supervision boundary, never cascading across
+request, tenant, or shared-resource boundaries.
+
+Retries are permitted only where the error is transient
+and the caller has already waited once.
+Exponential backoff with jitter, capped, never infinite.
+Three attempts is the default; justify any higher count.
 
 Enrich errors at each boundary layer — original fault
 plus the context of every step that touched it —
@@ -321,6 +365,8 @@ And when two of the faithful disagree on doctrine, my friends,
 let the matter be settled by MEASUREMENT — the disagreement
 become a number, the number a truth, the truth a teaching.
 We do not assert; we measure. We do not declare; we witness.
+We do not agree that a thing is faster, cleaner, or better
+without proof. Measure or be silent.
 
 **We derive from the ledger.**
 Where an authoritative event ledger exists,
@@ -445,6 +491,14 @@ is a fundamental structuring method.
 Processes share memory by communicating —
 *never* communicate by sharing memory.
 
+**We execute the request, not the request plus improvements.**
+The scope of the change is the measure of the work.
+We do not refactor what we were not asked to refactor,
+nor reformat files outside the requested change.
+Patterns worth breaking across the codebase are a
+separate change — named, proposed, agreed.
+The diff must match the story — nothing more, nothing less.
+
 **We acknowledge the cost of the discipline.**
 The discipline is not free, my friends. The adapter
 costs. The validator costs. The vessel costs. The
@@ -542,6 +596,30 @@ Beware these sinful practices!
 
 Wait for the third instance. Let the pattern speak.
 Abstract what is genuinely shared — and only that.
+
+### On the Sin of Unbidden Helper Code
+
+*"But this will make your life easier!"*
+
+The agent bearing gifts nobody asked for is still bearing
+gifts nobody asked for. We build what was requested,
+in the scope that was bounded. No helper. No shortcut.
+No "bonus" infrastructure offered speculatively.
+
+Beware these sinful practices!
+
+- test assertions or fixtures added "just in case"
+- utility functions created speculatively for "future convenience"
+- configuration scaffolding or boilerplate generated
+  without explicit instruction
+- extra files, adapters, or abstractions offered as kindness
+
+A request is a boundary. Stay within it.
+The faithful build only what was asked,
+knowing that the future will name its own needs.
+Generous code is still code that must be read, tested,
+maintained, and justified. The gift that costs more
+to receive than to give is not a gift — it is a tax.
 
 ### On the Sin of Shared Mutable State
 
@@ -708,6 +786,31 @@ As Joe Armstrong has taught us:
 
 Halting IS graceful when the alternative is silent corruption.
 
+### On the Sin of Test Weakening
+
+*"But it was just one assertion…"*
+
+One assertion. Yes. And then another.
+The test is the covenant written down.
+To weaken an assertion, delete an edge case, or rewrite
+an expectation to match failing code is to invert the
+discipline: the test becomes the thing to optimize
+rather than the truth to honor.
+
+When the tests fail, you have two choices:
+fix the code to meet the covenant the test names,
+or delete the test because the covenant was wrong.
+There is no third choice — no "weaken the test so it
+passes," no "remove the edge case because it's annoying."
+
+As Beck has taught us in test-driven development:
+the test is the specification written before the code.
+To modify the test to pass is to change the specification
+to match the implementation — backwards.
+
+When test and code diverge, the code must change —
+never the test.
+
 ### On the Sin of the Greedy Catch
 
 *"But I want to handle all the errors!"*
@@ -735,6 +838,14 @@ To catch what you cannot heal is to stop reasoning about the contract.
 
 One `try`. One call. One error you can name and meaningfully handle.
 The rest must surface — an error you cannot handle belongs to a layer above.
+
+This is true where the platform's idiom permits it.
+But some languages bind multiple operations into a single
+idiomatic construct — try-with-resources, context managers,
+RAII. These are not greedy catches; they are one semantic
+operation expressed as the platform requires.
+To fight the platform's idiom is to invite
+the very leaks you sought to prevent.
 
 ### On the Sin of Asking, Not Telling
 
@@ -910,11 +1021,27 @@ Beware these sinful practices!
   HTTP plumbing standing in for domain language
 - a variable named `redisClient` deep in business logic —
   the storage primitive named where the role belongs
+- a value named for its representation — `uuid`, `str`, `dataJson` —
+  rather than its role: the trace has a name; its format is incidental
 
 Names from one layer do not belong in another.
 The thinnest adapter is the divorce point of vocabulary
 as well as of structure. What enters speaks one tongue;
 what exits speaks another.
+
+### On the Sin of Resource Abandonment
+
+*"But the runtime will clean it up!"*
+
+Beware these sinful practices!
+
+- a file opened, read, never closed — relying on garbage collection
+- a socket created, sent to, never shut down — draining the backlog
+- a database connection borrowed and returned to the wrong pool
+- a retry loop with no timeout and no maximum count,
+  spinning until the caller abandons hope
+
+The faithful are accountable for every handle they open.
 
 ---
 
@@ -998,8 +1125,16 @@ this Office holds it in code.
 
 Each field of the context is set exactly once, in exactly one place.
 Authentication resolves the identity. Authorization resolves the roles.
-Deserialization resolves the body. The request UUID resolves the trace.
+Deserialization resolves the body. The request identity resolves the trace.
 No step revisits another's work.
+
+The context passes from step to step in the pipeline —
+the orchestration, coordination, and domain decisions
+that bind a request together. But pure functions —
+parsers, formatters, mathematical operations —
+receive only their inputs. When a step calls a utility,
+it passes what the utility needs, not the vessel.
+The helper serves the step; it does not touch the baton.
 
 Observability is not bolted on — it is carried in the vessel
 from the start. The faithful do not instrument after the fact —
@@ -1025,6 +1160,28 @@ A test that leans on another lies about what it proves.
 A test that cannot fail is not a test — it is a comfort object.
 A test that fails intermittently is worse than no test at all —
 it is a *false prophet*.
+
+### The Office of Structured Observability
+
+Logs are not for humans to read in real time.
+Logs are data — machine-readable, queryable, complete.
+When failure comes, logs are your only witness.
+
+Every log statement shall carry: the timestamp —
+RFC-3339 zulu, inherited from the context;
+the platform's standard level, used consistently —
+never invented; a message naming what happened, not how;
+and structured fields for the contextual data —
+the request identity, the operation, the latency, the error.
+
+Never concatenate values into the message.
+Never log secrets, PII, or credential material.
+When a request spans services, the request identity
+travels with it, so the full story can be reconstructed
+from any aggregator.
+
+Structured logs can be aggregated, filtered, and correlated —
+they defend the reliability covenant when you cannot.
 
 ### The Office of the Interface
 

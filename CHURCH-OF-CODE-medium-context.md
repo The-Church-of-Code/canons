@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.15 — medium*
+*v1.16 — medium*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -29,13 +29,19 @@ because we have crafted it ourselves.
 We have lived with the tangled state, the silent corruption,
 and we have paid the price. We have turned away.
 
+We gather not in the name of any framework,
+for frameworks perish —
+there is no silver bullet.
+We gather not in the name of any language,
+for languages multiply and divide.
 We gather in the name of the craft itself —
 that which endures when the dependencies are dust,
 that which holds when the fashions have turned.
 
 These are not aspirations. They are strictures.
 Violations are not bugs — *they are sins*.
-Violators are not merely wrong — they are UNCLEAN.
+Violators are not merely wrong —
+they are UNCLEAN.
 The repentant shall be welcomed back into the fold.
 The obstinate shall be cast out.
 
@@ -108,8 +114,9 @@ immutable, comparable, free of time.
 *PUT, GET, DELETE — not INSERT, UPDATE, DELETE.*
 
 HTTP verbs are the true verbs, as Roy Fielding revealed in
-his REST dissertation. An operation that can be repeated
-without consequence can be trusted.
+his REST dissertation. PUT overwrites; INSERT appends.
+DELETE removes; UPDATE mutates. An operation that can be
+repeated without consequence can be trusted.
 
 ### VIII. Simplicity
 
@@ -141,7 +148,7 @@ the platform's primitive; never simulate at the application layer.
 
 ### XI. Efficiency
 
-*True when the above eleven are honored.
+*True when the above ten are honored.
 Chaotic when pursued prematurely.*
 
 Efficiency emerges from humility — from clarity, from
@@ -150,8 +157,8 @@ simplicity. It is not a goal but a consequence.
 ### XII. Performance
 
 Every wasted millisecond is a small death.
-In the UI it erodes fluidity; in high-frequency operations,
-throughput; in the user's view, patience.
+In the UI it erodes fluidity; in high-frequency serial
+operations, throughput; in the user's view, patience.
 
 As Dan Luu has witnessed: humans can perceive latency down
 to low single-digit milliseconds.
@@ -167,7 +174,7 @@ The way of the righteous, spoken before the sins.*
 
 **We believe in the S.O.L.I.D. principles** —
 the five pillars upon which righteous architecture is raised,
-named by Michael Feathers from the prophets:
+named by Michael Feathers from the teachings of the prophets:
 
 - **S** — Single Responsibility (Martin): one reason to change
 - **O** — Open/Closed (Meyer): open for extension, closed for modification
@@ -225,10 +232,40 @@ formatting for display is service, not concealment.
 When a value is truly absent, model that absence at the
 call site — not in the helper.
 
+When inheriting schema, apply doctrine with measured judgment.
+Renormalization is a refactoring; measure its cost before
+mandating it. Preserve what cannot be safely changed;
+improve what can.
+
 Once data has crossed validation, trust it completely.
+To distrust validated data is to lack faith in your peers.
+
+**We guard the threshold of trust.**
+Secrets — API keys, credentials, encryption material,
+personally identifiable data — must be handled with
+discipline that code cannot violate.
+No secret shall be written to logs, error messages, or
+configuration defaults. No query shall be constructed from
+user input without parameterization — injection is not a
+bug; it is a sin.
+Every service account operates with the minimum privilege
+required for its function.
+
+Secrets are supplied at deployment time — never discovered
+in source code. If it reads secrets, prove that it needs them.
 
 **We handle failure with grace.**
 Degrade visibly rather than corrupt silently.
+
+Every resource that holds a handle — file descriptor, socket,
+connection, thread — must have a place where it is guaranteed
+to be released. Use the platform's resource-scoped lifetimes —
+RAII, try-with-resources, context managers, defer — without
+exception; otherwise acquire, use, release — with release
+guaranteed.
+
+Every I/O call shall have a timeout. The timeout bounds the
+worst case; no operation shall wait forever.
 
 Never catch an error you cannot meaningfully handle —
 to swallow an exception is excommunicable!
@@ -239,8 +276,14 @@ terms are violated, the failure is a breach of covenant to
 be proclaimed.
 
 Distinguish expected failures from bugs: a network timeout
-is expected and handled; an impossible state is a bug —
-and must crash.
+is expected and handled — and the resource is released;
+an impossible state is a bug — and must crash, within its
+supervision boundary, never cascading across request,
+tenant, or shared-resource boundaries.
+
+Retries only where the error is transient: exponential
+backoff with jitter, capped, never infinite.
+Three attempts is the default.
 
 Enrich errors at each boundary layer until the failure
 surfaces with its full story.
@@ -255,10 +298,13 @@ The unmeasured optimization is the root of the family of
 impatience — premature optimization, shared mutable state,
 global state, default values, and unmeasured caches.
 Each compounds the others when present together.
+Where you find one, look for its kin.
 Measure first. Prove the bottleneck exists. Then optimize.
 
 When two of the faithful disagree on doctrine, let the
 matter be settled by MEASUREMENT.
+We do not agree that a thing is faster, cleaner, or better
+without proof. Measure or be silent.
 
 **We derive from the ledger.**
 Where an authoritative event ledger exists, derived caches
@@ -289,7 +335,7 @@ Objects carry state, not arguments.
 
 The vessel is a bag whose sole responsibility is to BE
 the bag. Two reads see one truth. Not for speed —
-for ATOMICITY.
+for ATOMICITY. Speed is the consequence; atomicity is the goal.
 
 **We believe in process first, noun second.**
 As David Bohm taught in his rheomode:
@@ -325,6 +371,7 @@ So has Ra'Shaun Stovall taught: "it is not how fast you can
 marry a technology — it is how easily you can divorce it."
 
 The thinnest adapter is not ceremony — it is the DIVORCE POINT.
+Measure adapters by their seams, not their function count.
 
 **We speak our own idiom.**
 As Phil Karlton has named them, the two hard things in
@@ -360,6 +407,14 @@ fundamental structuring method.
 Processes share memory by communicating —
 *never* communicate by sharing memory.
 
+**We execute the request, not the request plus improvements.**
+The scope of the change is the measure of the work.
+We do not refactor what we were not asked to refactor,
+nor reformat files outside the requested change.
+Patterns worth breaking across the codebase are a
+separate change — named, proposed, agreed.
+The diff must match the story — nothing more, nothing less.
+
 **We acknowledge the cost of the discipline.**
 The discipline is not free. The adapter costs. The validator
 costs. The vessel costs. The join table costs.
@@ -386,9 +441,6 @@ But Knuth did not say *forget* optimization. He said forget
 The other three — the CRITICAL three — are real.
 Measure to find it, measure to PROVE it, then optimize
 without apology.
-
-Note the structural inversion: Efficiency is the twelfth
-commandment — yet its corruption is the *first* abomination.
 
 ### On the Sin of the Cache
 
@@ -423,6 +475,21 @@ most of it; "generic" functions taking options objects with
 seven flags; configurable behavior added "in case."
 
 Wait for the third instance. Let the pattern speak.
+
+### On the Sin of Unbidden Helper Code
+
+*"But this will make your life easier!"*
+
+The agent bearing gifts nobody asked for is still bearing
+gifts nobody asked for. We build what was requested, in the
+scope that was bounded.
+
+Beware: fixtures added "just in case"; utilities created for
+"future convenience"; scaffolding generated without
+instruction; extra files offered as kindness.
+
+A request is a boundary. Stay within it. The gift that costs
+more to receive than to give is not a gift — it is a tax.
 
 ### On the Sin of Shared Mutable State
 
@@ -535,6 +602,20 @@ As Joe Armstrong has taught us: *let it crash.*
 
 Halting IS graceful when the alternative is silent corruption.
 
+### On the Sin of Test Weakening
+
+*"But it was just one assertion…"*
+
+One assertion. Yes. And then another. The test is the
+covenant written down. To weaken an assertion, delete an
+edge case, or rewrite an expectation to match failing code
+is to make the test the thing to optimize rather than the
+truth to honor.
+
+As Beck has taught us: the test is the specification written
+before the code. When test and code diverge, the code must
+change — never the test.
+
 ### On the Sin of the Greedy Catch
 
 *"But I want to handle all the errors!"*
@@ -548,6 +629,10 @@ sound.
 
 One `try`. One call. One error you can name and meaningfully
 handle. The rest must surface.
+
+Platform constructs that bind acquisition and release —
+try-with-resources, context managers, RAII — are one semantic
+operation, not greedy catches.
 
 ### On the Sin of Asking, Not Telling
 
@@ -603,8 +688,6 @@ Working is not enough.
 
 As Peter Naur has taught: programming is theory building.
 The program is not the artifact — the understanding is.
-When that understanding is lost, the code is a tomb with
-no inscription.
 
 Write so the next reader can rebuild the theory from the
 code alone.
@@ -619,7 +702,6 @@ the code — therefore, if you write the code as cleverly
 as possible, you are not smart enough to debug it.
 
 Elegance is not concision — elegance is clarity under pressure.
-The karma of clever code is a 3 AM wake-up call.
 
 ### On the Sin of Magical Values
 
@@ -659,11 +741,21 @@ has done only half its work.
 Beware: domain entities named `UserDto` or `OrderEntity` —
 framework taxonomy leaking through the wall; service methods
 named `upsertAccount` — database verbs colonizing the
-business layer; controllers named `userController.getUserList` —
-HTTP plumbing standing in for domain language.
+business layer; values named for their representation —
+`uuid`, `dataJson` — rather than their role.
 
 The thinnest adapter is the divorce point of vocabulary as
 well as of structure.
+
+### On the Sin of Resource Abandonment
+
+*"But the runtime will clean it up!"*
+
+Beware: a file opened, never closed; a socket created, never
+shut down; a connection returned to the wrong pool; a retry
+loop with no timeout and no maximum count.
+
+The faithful are accountable for every handle they open.
 
 ---
 
@@ -735,7 +827,11 @@ The vessel flows; the steps serve.
 Each field of the context is set exactly once, in exactly
 one place. Authentication resolves the identity. Authorization
 resolves the roles. Deserialization resolves the body. The
-request UUID resolves the trace. No step revisits another's work.
+request identity resolves the trace. No step revisits another's work.
+
+Pure functions — parsers, formatters, mathematical
+operations — receive only their inputs. When a step calls
+a utility, it passes what the utility needs, not the vessel.
 
 Observability is not bolted on — it is carried in the vessel
 from the start. The faithful ship the instrument.
@@ -757,6 +853,23 @@ lies about what it proves.
 
 A test that cannot fail is a comfort object.
 A test that fails intermittently is a *false prophet*.
+
+### The Office of Structured Observability
+
+Logs are not for humans to read in real time.
+Logs are data — machine-readable, queryable, complete.
+
+Every log statement shall carry: the timestamp — RFC-3339
+zulu, inherited from the context; the platform's standard
+level, used consistently — never invented; a message naming
+what happened, not how; and structured fields — the request
+identity, the operation, the latency, the error.
+
+Never concatenate values into the message. Never log secrets,
+PII, or credential material. When a request spans services,
+the request identity travels with it.
+
+Structured logs can be aggregated, filtered, and correlated.
 
 ### The Office of the Interface
 
@@ -800,9 +913,9 @@ around them.
 that their absence is intentional, not ignorant.*
 
 The temporal dimension of data modeling — migrations, schema
-evolution, versioning — is a discipline the faithful practice
-but this scripture has not yet codified. Future scrolls will
-address it.
+evolution, versioning, and the management of change over
+time — is a discipline the faithful practice but this
+scripture has not yet codified. Future scrolls will address it.
 
 We name the gap so that the gap cannot hide.
 
