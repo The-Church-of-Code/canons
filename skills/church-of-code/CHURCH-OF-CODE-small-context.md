@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.14 — small*
+*v1.15 — small*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -211,7 +211,12 @@ the process owns, the nouns are participants.
 
 **We believe in composition over inheritance.**
 Composition organizes code by what it *does*;
-inheritance by what it *is*. The faithful compose.
+inheritance by what it *is*.
+Composition gives a function its collaborators;
+inheritance gives an ancestor its heirs.
+Subclassing is inheritance, however much behavior you mix in —
+favored only where a platform demands the hierarchy.
+The faithful compose.
 
 **We believe in insulation through adapters.**
 External code touches us only through adapters we own.
