@@ -17,12 +17,12 @@ Violations are not bugs. They are sins.
 Three variants of the same doctrine ship with this skill. Read
 exactly one, chosen by the context budget you have at hand:
 
-- **Full** — `CHURCH-OF-CODE.md` (~40 KB). Read this when context
+- **Full** — `CHURCH-OF-CODE.md` (~44 KB). Read this when context
   is abundant. Every commandment, every prophet, every objection.
-- **Medium** — `CHURCH-OF-CODE-medium-context.md` (~28 KB). Read
+- **Medium** — `CHURCH-OF-CODE-medium-context.md` (~31 KB). Read
   this when context is tight but the full voice still fits.
   Doctrine intact, elaboration trimmed.
-- **Small** — `CHURCH-OF-CODE-small-context.md` (~13 KB). Read
+- **Small** — `CHURCH-OF-CODE-small-context.md` (~15 KB). Read
   this when context is scarce. Every doctrine present, metaphor
   stripped, rules preserved.
 
