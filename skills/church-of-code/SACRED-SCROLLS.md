@@ -23,6 +23,7 @@ from the teachings of the prophets who came before.*
 - Programming as Theory Building
   — Peter Naur on understanding over documentation (1985)
 - Design Patterns — Gamma, Helm, Johnson, and Vlissides (1994)
+- Test-Driven Development: By Example — Kent Beck (2002)
 - Tell, Don't Ask — Andy Hunt and Dave Thomas (1998)
 - Rheocode Software Development
   — the synthesis, named for Bohm's rheomode (Mornini and Stovall, 2016)
@@ -43,7 +44,6 @@ from the teachings of the prophets who came before.*
 - Replace Magic Literal — Martin Fowler's refactoring catalog
 - Representational State Transfer — Roy Fielding's dissertation (2000)
 - James Gosling on Java — the creator's regret about inheritance (2001)
-- Test-Driven Development: By Example — Kent Beck (2002)
 - The Art of Unix Programming
   — Eric S. Raymond on Unix design philosophy (2003)
 - Making Reliable Distributed Systems in the Presence of Software Errors
