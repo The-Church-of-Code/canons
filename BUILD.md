@@ -60,9 +60,9 @@ never from removing topics.
 The document follows a **positive-negative-practical** pattern:
 
 1. **Commandments** declare ranked virtues
-2. **Articles of Faith** state operational beliefs (19 in v1.13)
-3. **Book of Abominations** diagnoses most as sins (22 in v1.13)
-4. **Daily Offices** operationalize the beliefs (7 in v1.13)
+2. **Articles of Faith** state operational beliefs (21 in v1.16)
+3. **Book of Abominations** diagnoses most as sins (25 in v1.16)
+4. **Daily Offices** operationalize the beliefs (8 in v1.16)
 
 The Abominations section uses **dual-channel pedagogy** — virtue
 stated positively in the Article, sin diagnosed negatively in
@@ -142,10 +142,11 @@ earns its keep survives. Cuts are surgical.
 | Title + Epigraph | Verbatim |
 | Preamble | Verbatim |
 | Twelve Commandments | Keep all 12 headings + italic summaries. Trim elaboration to 2-3 lines per commandment. Cut extended metaphors, keep declarative doctrine and specific rules (-er/-able naming, HTTP verbs, Luu latency thresholds, mistake/fallacy distinction). |
-| Articles of Faith | Keep all 19 Article openings verbatim (most begin with "We"; one with "Every"). Trim the longest articles (Handle-failure, Process-first, Context-vessel, Validate-at-every-edge) by ~30%. Keep the pounder.pound example once. |
-| Book of Abominations | Keep all 22 titles + italic objections. Articles teach belief; Abominations teach diagnosis. Sins with diagnostic content get 4-6 lines (symptoms, tells). Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
-| Daily Offices | Keep all 7 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, force-push as catastrophe-only, commit-before-build workflow, etc.). Trim metaphorical flourishes only. |
+| Articles of Faith | Keep all 21 Article openings verbatim (most begin with "We"; one with "Every"). Trim the longest articles (Handle-failure, Threshold-of-trust, Process-first, Context-vessel, Validate-at-every-edge) by ~30%. Keep the pounder.pound example once. |
+| Book of Abominations | Keep all 25 titles + italic objections. Articles teach belief; Abominations teach diagnosis. Sins with diagnostic content get 4-6 lines (symptoms, tells) — the v1.16 sins (Unbidden Helper Code, Test Weakening, Resource Abandonment) are diagnostic-style. Sins with partial unique content get title + italic + 1 distinctive sentence. Sins with unique prophetic witnesses get title + italic + 1-2 sentences preserving the prophet attribution and core argument. |
+| Daily Offices | Keep all 8 offices and all specific rules (78 chars, 4 spaces, RFC-3339, ~50 char commits, force-push as catastrophe-only, commit-before-build workflow, structured-log fields, etc.). Trim metaphorical flourishes only. |
 | Unwritten Scrolls | Verbatim |
+| Practice of Revision | Trim direct-address flourishes; keep all doctrine. |
 | Sacred Scrolls | The source section is a single relative link to SACRED-SCROLLS.md. Carry the heading + link through verbatim. |
 
 ---
@@ -166,12 +167,13 @@ of the source structure.
 | Section | Strategy |
 |---------|----------|
 | Title + Epigraph | Verbatim |
-| Preamble | Condense the confessional retrospective to essentials. Keep "This is scripture" framing, "Violations are not bugs — they are sins," and the three prefigurative images (tangled state, silent corruption, null where conviction should stand). Cut the framework/language negative creed. |
+| Preamble | Condense the confessional retrospective to essentials. Keep "This is scripture" framing, "Violations are not bugs — they are sins," and the prefigurative images (the tangled state, the silent corruption). Cut the framework/language negative creed. |
 | Twelve Commandments | All 12 headings + italic summaries. 0-1 sentences of elaboration per commandment — only when the italic alone is insufficient (e.g., III needs the -er/-able rule, VII needs the verb semantics, IV benefits from the mistake/fallacy distinction). |
-| Articles of Faith | All 19 Article opening sentences + 1-2 essential operational sentences each. |
-| Book of Abominations | Section heading + intro + all 22 sins as compact single lines: `**On [Name]** — *"[italic objection]"*` No body text. The section must exist because the document self-references it ("the Articles of Faith precede the Book of Abominations"). |
-| Daily Offices | All 7 offices, all specific rules preserved. Strip all metaphor. |
+| Articles of Faith | All 21 Article opening sentences + 1-2 essential operational sentences each. |
+| Book of Abominations | Section heading + intro + all 25 sins as compact single lines: `**On [Name]** — *"[italic objection]"*` No body text. The section must exist because the document self-references it ("the Articles of Faith precede the Book of Abominations"). |
+| Daily Offices | All 8 offices, all specific rules preserved. Strip all metaphor (load-bearing metaphors that carry doctrine, like the vessel, survive). |
 | Unwritten Scrolls | Verbatim |
+| Practice of Revision | Trim direct-address flourishes; keep all doctrine. |
 | Sacred Scrolls | Section heading + the single relative link to SACRED-SCROLLS.md, verbatim. |
 
 ### Unique teachings — where they live in v1.8+
@@ -244,18 +246,24 @@ After creating each file:
 
 1. `wc -c` — verify byte count is within target (±5%)
 2. Grep for `^### [IVX]` — confirm 12 commandments
-3. Article count — confirm 19. Use awk-piped grep since one
+3. Article count — confirm 21. Use awk-piped grep since one
    Article begins with "Every" rather than "We":
    ```bash
    awk '/^## The Articles of Faith/,/^## The Book of Abominations/' \
      CHURCH-OF-CODE.md | grep -c '^\*\*'
    ```
-4. Grep for all 22 sin names — confirm present
-5. Grep for `^### The Office` — confirm 7 offices
-6. Grep for `"But ` — confirm 22 italic objections
+4. Grep for all 25 sin names — confirm present
+5. Grep for `^### The Office` — confirm 8 offices
+6. Grep for `"But ` — confirm 25 italic objections
 7. Grep for tonal anchors: scripture, "they are sins",
    faithful, "let it crash"
-8. Read the complete file to verify natural flow
+8. Reverse-drift check — the derivation chain must hold:
+   every sentence in small descends from medium, and every
+   sentence in medium descends from full, modulo permitted
+   condensation. Sections marked Verbatim are compared
+   exactly. A variant must never contain doctrine its
+   parent lacks.
+9. Read the complete file to verify natural flow
    and consistent scriptural voice
 
 ---
