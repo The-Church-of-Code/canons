@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.14 — medium*
+*v1.15 — medium*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -307,7 +307,12 @@ better without inheritance.
 Gamma, Helm, Johnson, and Vlissides wrote: favor object
 composition over class inheritance.
 Composition organizes code by what it *does*;
-inheritance by what it *is*. The faithful compose.
+inheritance by what it *is*.
+Composition gives a function its collaborators;
+inheritance gives an ancestor its heirs.
+Subclassing is inheritance, however much behavior you mix in —
+favored only where a platform demands the hierarchy.
+The faithful compose.
 
 **We believe in insulation through adapters.**
 Our code touches external code only through adapters we own,

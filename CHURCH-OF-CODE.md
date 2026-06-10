@@ -1,6 +1,6 @@
 # The Church of Code
 
-*v1.14 — full*
+*v1.15 — full*
 
 > *Simplicity is prerequisite for reliability.*
 > — Edsger Dijkstra
@@ -383,6 +383,10 @@ Gamma, Helm, Johnson, and Vlissides wrote in Design Patterns:
 favor object composition over class inheritance.
 Composition organizes code by what it *does*;
 inheritance organizes code by what it *is*.
+Composition gives a function its collaborators;
+inheritance gives an ancestor its heirs.
+Subclassing is inheritance, however much behavior you mix in —
+favored only where a platform demands the hierarchy.
 The faithful compose.
 
 **We believe in insulation through adapters.**
