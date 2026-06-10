@@ -47,14 +47,14 @@ When the full scripture changes, both variants must be regenerated. Read BUILD.m
 **Verification** (after each variant):
 - `wc -c` — byte count within ±5% of target
 - `grep -c '^### [IVX]'` — exactly 12 commandments
-- Article count: exactly 19 — use awk-piped grep since one Article begins with "Every":
+- Article count: exactly 21 — use awk-piped grep since one Article begins with "Every":
   ```bash
   awk '/^## The Articles of Faith/,/^## The Book of Abominations/' \
     CHURCH-OF-CODE.md | grep -c '^\*\*'
   ```
-- All 22 sin names present
-- `grep -c '^### The Office'` — exactly 7 offices
-- `grep -c '"But '` — exactly 22 italic objections
+- All 25 sin names present
+- `grep -c '^### The Office'` — exactly 8 offices
+- `grep -c '"But '` — exactly 25 italic objections
 - Tonal anchors preserved: "scripture", "they are sins", "faithful", "let it crash"
 
 ## Version and Release
